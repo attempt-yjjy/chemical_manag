@@ -1,0 +1,8 @@
+#input-management{
+    height: 100%;
+}
+
+.input-main>.el-container>.el-main{
+    margin:20px;
+    background-color: #fff;
+}

@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+::-webkit-scrollbar{
+    width:2px;
+    height:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: black;
+}
+
+.el-header{
+    background-color: white;
+}
+
+.el-main{
+    padding: 0 !important;
+    background-color: #F5F5F5;
+    height:100%;
+}
+
+.necessary_mark{
+    color: red;
+}

@@ -1,0 +1,64 @@
+#return-input{
+    height: 100%;
+}
+
+#return-input>.el-container{
+    height:100%;
+}
+
+#return-input>.el-container>.el-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+} 
+
+#return-input>.el-container>.el-header .all_input_container{
+    box-sizing: border-box;
+    padding-left:10%;
+    padding-right:10%;
+}
+
+#return-input>.el-container>.el-header .input_container{
+    margin-top: 10%;
+}
+
+#return-input>.el-container>.el-header .input_container>label{
+    line-height: 1.8em;
+    color:  #606266;
+}
+
+#return-input>.el-container>.el-header .button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#return-input>.el-container>.el-header span:nth-child(2){
+    color: #606266;
+    font-size: larger;
+    font-weight: 500;
+}
+
+#return-input>.el-container>.el-main .demo-table-expand {
+    font-size: 0;
+    color:#606266;
+  }
+#return-input>.el-container>.el-main .demo-table-expand label {
+    width: 90px;
+    color: #99a9bf;
+  }
+#return-input>.el-container>.el-main .demo-table-expand .el-form-item {
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 50%;
+  }
+
+#return-input>.el-container>.el-main .el-pagination{
+      margin: auto;
+      margin-top: 3%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+  }

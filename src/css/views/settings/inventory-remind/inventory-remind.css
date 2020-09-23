@@ -1,0 +1,46 @@
+#inventory-remind{
+
+}
+
+#inventory-remind .item{
+    height:20vh;
+    background-color: white;
+    padding: 1.5vh 2vh;
+}
+
+#inventory-remind .item .title{
+    border-bottom: 1px solid #C7D8F5;
+    line-height: 1.8em;
+    color: #457EDD;
+    font-weight: 700;
+}
+
+#inventory-remind .item .item-body{
+    height:16vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:70%;
+}
+
+#inventory-remind .item .item-body input{
+    border: RGBA(217, 217, 217, 1) 1px solid;
+    height: 2.5em;
+    outline: none;
+    border-radius: 5px;
+    margin:0 1em;
+    padding:0 1em;
+}
+
+#inventory-remind .item .item-body .name-input-container input{
+    width:25em;
+}
+
+#inventory-remind .item .item-body .number-input-container input{
+    width:8em;
+}
+
+#inventory-remind .item .item-body .el-button{
+    width:8em;
+}

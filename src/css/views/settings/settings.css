@@ -1,0 +1,22 @@
+#settings{
+    margin:0;
+    height: 100%;
+}
+
+#settings .header{
+    background-color: white;
+    height:6vh;
+    line-height: 6vh;
+    padding-left: 1em;
+    color: #457EDD;
+    font-size: larger;
+}
+
+#settings .header span:nth-child(1){
+    font-weight: 900;
+}
+
+#settings .main{
+    margin: 20px;
+    box-sizing: border-box;
+}

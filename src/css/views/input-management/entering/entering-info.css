@@ -1,0 +1,55 @@
+#entering-info{
+    height:100%;
+}
+
+#entering-info>.el-container{
+    height:100%;
+}
+
+#entering-info>.el-container>.el-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+#entering-info>.el-container>.el-header span:nth-child(1){
+    color: #606266;
+    font-size: larger;
+    font-weight: 500;
+}
+
+#entering-info .input-info-table{
+    margin: auto;
+    margin-top: 5vh;
+    width:60%;
+    
+}
+
+#entering-info .input-info-table td{
+    height:10vh;
+    text-align-last: justify;
+}
+
+#entering-info .input-info-table .space-td{
+    width:20%;
+}
+
+#entering-info .confirm-btn{
+    border-top: #DCDFE6 1px solid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    margin: auto;
+    width:60%;
+}
+
+#entering-info .confirm-btn button{
+    display: block;
+    margin-left:3vw;
+    margin-right:3vw;
+    width:10%;
+}

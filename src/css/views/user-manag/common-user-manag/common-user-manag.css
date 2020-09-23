@@ -1,0 +1,81 @@
+#common-user-manag{
+    height:100%;
+}
+
+#common-user-manag .el-container{
+    height:100%;
+}
+
+#common-user-manag .el-header{
+    height:calc(25%) !important;
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+#common-user-manag .el-main{
+    height:calc(75%);
+    background-color: white;
+}
+
+#common-user-manag .user-info-input-container{
+    height: 30%;
+}
+
+#common-user-manag .user-info-input-container table td{
+    text-align-last: justify;
+    width:4vw;
+}
+
+#common-user-manag .user-info-input-container table .input-td{
+    width: 10vw;
+}
+
+#common-user-manag .user-info-input-container table .split-td{
+    width:5vw;
+}
+
+#common-user-manag .btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px #F0F0F0 solid;
+    height:50%;
+    padding-bottom: 2em;
+}
+
+#common-user-manag .btn-container .el-button{
+    width:5vw;
+    margin:0 2vw;
+}
+
+#common-user-manag .el-main .for-index{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 1em;
+}
+
+#common-user-manag .el-main .split-space{
+    flex: 1;
+}
+
+#common-user-manag .el-main .el-input{
+    width:15%;
+}
+
+#common-user-manag .el-main .for-table{
+    margin: 1em;
+    box-sizing: border-box;
+}
+
+#common-user-manag .el-main .for-pagination .el-pagination{
+    margin: auto;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+

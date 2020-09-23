@@ -1,0 +1,8 @@
+#output-management{
+    height: 100%;
+}
+
+.output-main>.el-container>.el-main{
+    margin:20px;
+    background-color: #fff;
+}

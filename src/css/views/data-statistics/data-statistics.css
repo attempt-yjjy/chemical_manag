@@ -1,0 +1,74 @@
+#data-statistics{
+    margin:0;
+    height: 100%;
+}
+
+#data-statistics>.header{
+    background-color: white;
+    height:6vh;
+    line-height: 6vh;
+    padding-left: 1em;
+    color: #457EDD;
+    font-size: larger;
+}
+
+#data-statistics .header span:nth-child(1){
+    font-weight: 900;
+}
+
+#data-statistics>.main{
+    margin: 20px;
+    box-sizing: border-box;
+    height: 89%;
+    background-color: F5F5F5;
+}
+
+#data-statistics .chart-container{
+    background-color: white;
+    margin-top:1em;
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+#data-statistics .chart-container .title{
+    color: #457EDD;
+    line-height: 1.5em;
+    border-bottom:#C7D8F5 1px solid;
+}
+
+#data-statistics .chart-container .search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding:2em 0;
+}
+
+#data-statistics .chart-container .search .el-date-picker{
+    width:15%;
+}
+
+#test1,#test2{
+    height:40vh;
+}
+
+#data-statistics .data-block-container{
+    margin-top: 1.2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#data-statistics .data-block-container .data-block{
+    width:24vh;
+    height:24vh;
+    background-color: #fff;
+    margin:0 1.2em 0 0;
+}
+
+#data-statistics .data-block-container .user-record-block{
+    flex: 1;
+    height:24vh;
+    background:#fff;
+}
