@@ -1,5 +1,5 @@
 <template>
-  <div class='header-title-bar'>
+  <div class='header-title-bar' :style="{'padding':(HasPadding?'0 1em':'0')}">
       <span>{{"| "}}{{PrefixTitleText}}{{(SuffixTitleText?'/':'')}}</span><span>{{(SuffixTitleText?SuffixTitleText:'')}}</span>
   </div>
 </template>
@@ -14,6 +14,10 @@
       SuffixTitleText:{
           type:String,
           default:null
+      },
+      HasPadding:{
+          type:Boolean,
+          default:true
       }
     }
   }

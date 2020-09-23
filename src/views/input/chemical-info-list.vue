@@ -1,7 +1,8 @@
 <template>
   <div id="input-chemical" class="input-main">
     <el-container>
-      <el-header>
+      
+      <el-main>
         <el-drawer
           title="药品列表检索"
           :visible="drawer_show"
@@ -45,10 +46,7 @@
             </div>
           </div>
         </el-drawer>
-        <span>化学药品信息列表</span>
         <el-button @click="drawer_show = !drawer_show" class="button_open" type="primary">打开检索</el-button>
-      </el-header>
-      <el-main>
         <el-table 
           :data="tableData" 
           style="width: 100%"
@@ -93,6 +91,7 @@
   </div>
 </template>
 <script>
+import HeaderTitleBar from 'components/common/header-title-bar.vue'
 export default {
   name: "",
   props: {},
@@ -233,6 +232,9 @@ export default {
         }
       ]
     };
+  },
+  components:{
+    HeaderTitleBar
   },
   methods: {
     handleClose(done) {

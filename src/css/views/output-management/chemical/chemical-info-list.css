@@ -6,37 +6,28 @@
     height:100%;
 }
 
-#output-chemical>.el-container>.el-header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-
-} 
-
-#output-chemical>.el-container>.el-header .all_output_container{
+#output-chemical>.el-container .all_output_container{
     box-sizing: border-box;
     padding-left:10%;
     padding-right:10%;
 }
 
-#output-chemical>.el-container>.el-header .output_container{
+#output-chemical>.el-container .output_container{
     margin-top: 10%;
 }
 
-#output-chemical>.el-container>.el-header .output_container>label{
+#output-chemical>.el-container .output_container>label{
     line-height: 1.8em;
     color:  #606266;
 }
 
-#output-chemical>.el-container>.el-header .button-container{
+#output-chemical>.el-container .button-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-#output-chemical>.el-container>.el-header span:nth-child(2){
+#output-chemical>.el-container span:nth-child(2){
     color: #606266;
     font-size: larger;
     font-weight: 500;

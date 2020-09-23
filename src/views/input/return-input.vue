@@ -1,7 +1,8 @@
 <template>
   <div id="return-input" class="input-main">
     <el-container>
-      <el-header>
+      <el-main>
+        <el-button @click="drawer_show = !drawer_show" class="button_open" type="primary">打开检索</el-button>
         <el-drawer
           title="外借列表"
           :visible="drawer_show"
@@ -45,10 +46,6 @@
             </div>
           </div>
         </el-drawer>
-        <span>外借列表</span>
-        <el-button @click="drawer_show = !drawer_show" class="button_open" type="primary">打开检索</el-button>
-      </el-header>
-      <el-main>
         <el-table 
           :data="tableData" 
           style="width: 100%"

@@ -6,36 +6,28 @@
     height:100%;
 }
 
-#input-chemical>.el-container>.el-header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-} 
-
-#input-chemical>.el-container>.el-header .all_input_container{
+#input-chemical>.el-container .all_input_container{
     box-sizing: border-box;
     padding-left:10%;
     padding-right:10%;
 }
 
-#input-chemical>.el-container>.el-header .input_container{
+#input-chemical>.el-container .input_container{
     margin-top: 10%;
 }
 
-#input-chemical>.el-container>.el-header .input_container>label{
+#input-chemical>.el-container .input_container>label{
     line-height: 1.8em;
     color:  #606266;
 }
 
-#input-chemical>.el-container>.el-header .button-container{
+#input-chemical>.el-container .button-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-#input-chemical>.el-container>.el-header span:nth-child(2){
+#input-chemical>.el-container span:nth-child(2){
     color: #606266;
     font-size: larger;
     font-weight: 500;

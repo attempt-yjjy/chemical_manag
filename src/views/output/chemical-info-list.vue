@@ -1,8 +1,8 @@
 <template>
   <div id="output-chemical" class="output-main">
     <el-container>
-      <el-header>
-        <el-drawer
+      <el-main>
+         <el-drawer
           title="药品列表检索"
           :visible="drawer_show"
           :before-close="handleClose"
@@ -45,10 +45,7 @@
             </div>
           </div>
         </el-drawer>
-        <span>化学药品信息列表</span>
         <el-button @click="drawer_show = !drawer_show" class="button_open" type="primary">打开检索</el-button>
-      </el-header>
-      <el-main>
         <el-table 
           :data="tableData" 
           style="width: 100%"

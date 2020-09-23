@@ -1,16 +1,13 @@
 <template>
   <div id="entering-info" class="input-main">
     <el-container>
-      <el-header>
-        <span>入库登记</span>
+      <el-main>
         <div>
           <el-radio-group v-model="radio">
             <el-radio-button label="药品"></el-radio-button>
             <el-radio-button label="设备"></el-radio-button>
           </el-radio-group>
         </div>
-      </el-header>
-      <el-main>
           <table class="input-info-table">
             <tr>
               <td><span class="necessary_mark">*</span>入 库 日 期:</td>
