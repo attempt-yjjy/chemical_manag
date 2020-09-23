@@ -87,7 +87,7 @@ export default{
         },
         {
             "menu-item-name":"通知功能",
-            "path":"/inform",
+            "path":"/inform-manag",
             "sub_menu":[
                 
             ],

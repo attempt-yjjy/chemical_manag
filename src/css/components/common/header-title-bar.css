@@ -1,0 +1,12 @@
+.header-title-bar{
+    height:6vh;
+    background-color: #fff;
+    line-height: 6vh;
+    padding:0 1em;
+    box-sizing: border-box;
+}
+
+.header-title-bar span:nth-child(1){
+    color:#457EDD;
+}
+

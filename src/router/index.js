@@ -81,6 +81,10 @@ const routes = [
     component:()=>import("views/data-statistics.vue")
   },
   {
+    path:"/inform-manag",
+    component:()=>import("views/inform-manag.vue")
+  },
+  {
     path:'/resource-manag',
     component:()=>import('views/resource-manag.vue'),
     children:[

@@ -1,0 +1,34 @@
+#inform-manag{
+    margin:0;
+    height: 100%;
+}
+
+#inform-manag>.header{
+    background-color: white;
+    height:6vh;
+    line-height: 6vh;
+    padding-left: 1em;
+    color: #457EDD;
+    font-size: larger;
+}
+
+#inform-manag .header span:nth-child(1){
+    font-weight: 900;
+}
+
+#inform-manag .main{
+    height: 84vh;
+    box-sizing: border-box;
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#inform-manag .main .remind-block{
+    background-color: #fff;
+    width: 49.5%;
+    box-sizing: border-box;
+    padding: 1em;
+}
+

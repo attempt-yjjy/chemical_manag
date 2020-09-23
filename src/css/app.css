@@ -6,11 +6,11 @@
   }
 
   #app>.el-container>.el-container{
-    height: 80%;
+    height: 80vh;
   }
 
   #app>.el-container>.el-header{
-    height:10%;
+    height:10vh;
     background-color:#457EDD;
   }
 
@@ -22,3 +22,5 @@
     background-color:#343641;
     width:13% !important;
   }
+
+  
