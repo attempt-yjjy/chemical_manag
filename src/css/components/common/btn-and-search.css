@@ -1,0 +1,15 @@
+.btn-and-search{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding:1em 0;
+}
+
+.btn-and-search .el-input{
+    width:15em;
+}
+
+.btn-and-search .split-div{
+    flex: 1;
+}

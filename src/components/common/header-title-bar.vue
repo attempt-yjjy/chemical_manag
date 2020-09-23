@@ -1,6 +1,6 @@
 <template>
   <div class='header-title-bar' :style="{'padding':(HasPadding?'0 1em':'0')}">
-      <span>{{"| "}}{{PrefixTitleText}}{{(SuffixTitleText?'/':'')}}</span><span>{{(SuffixTitleText?SuffixTitleText:'')}}</span>
+      <span>{{"| "}}{{PrefixTitleText}}{{(current_path?'/':'')}}</span><span>{{(current_path?current_path:'')}}</span>
   </div>
 </template>
 <script>
@@ -11,14 +11,15 @@
           type:String,
           default:"大标题"
       },
-      SuffixTitleText:{
-          type:String,
-          default:null
-      },
       HasPadding:{
           type:Boolean,
           default:true
       }
+    },
+    computed:{
+        current_path(){
+            return this.$store.state.currentSubPath
+        }
     }
   }
 </script>

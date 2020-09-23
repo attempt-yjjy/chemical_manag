@@ -3,6 +3,7 @@
 }
 
 .input-main>.el-container>.el-main{
-    margin:20px;
+    margin:1em;
+    padding: 1em !important;
     background-color: #fff;
 }

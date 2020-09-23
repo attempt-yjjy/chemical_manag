@@ -55,6 +55,7 @@ import LargeNum from "components/common/large-num.vue";
 import HeaderTitleBar from 'components/common/header-title-bar.vue'
 export default {
   name: "",
+  name_zh:"数据统计",
   props: {},
   data() {
     return {

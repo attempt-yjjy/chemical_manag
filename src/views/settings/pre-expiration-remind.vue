@@ -26,7 +26,8 @@ import SimpleTitleBar from 'components/common/simple-title-bar.vue'
     },
     data(){
         return{
-            name:""
+            name:"",
+            number:0
         }
     },
     components:{

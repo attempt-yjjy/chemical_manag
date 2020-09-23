@@ -3,7 +3,7 @@
     <el-container>
       
       <el-main>
-        <el-drawer
+        <!-- <el-drawer
           title="药品列表检索"
           :visible="drawer_show"
           :before-close="handleClose"
@@ -46,7 +46,8 @@
             </div>
           </div>
         </el-drawer>
-        <el-button @click="drawer_show = !drawer_show" class="button_open" type="primary">打开检索</el-button>
+        <el-button @click="drawer_show = !drawer_show" class="button_open" type="primary">打开检索</el-button> -->
+        <btn-and-search></btn-and-search>
         <el-table 
           :data="tableData" 
           style="width: 100%"
@@ -91,7 +92,7 @@
   </div>
 </template>
 <script>
-import HeaderTitleBar from 'components/common/header-title-bar.vue'
+import BtnAndSearch from 'components/common/btn-and-search.vue'
 export default {
   name: "",
   props: {},
@@ -234,7 +235,7 @@ export default {
     };
   },
   components:{
-    HeaderTitleBar
+    BtnAndSearch
   },
   methods: {
     handleClose(done) {
