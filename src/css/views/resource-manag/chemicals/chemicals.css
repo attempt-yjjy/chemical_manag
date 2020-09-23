@@ -1,8 +1,11 @@
+#resource-manag-chemicals{
+    margin: auto;
+}
 #resource-manag-chemicals .el-select{
-    margin-left: 20px;
+    margin-left: 2vh;
 }
 #resource-manag-chemicals .el-input-number{
-    margin-left: 20px;
+    margin-left: 2vh;
 }
 #resource-manag-chemicals .el-table .warning-row {
     background: oldlace;
@@ -11,6 +14,34 @@
     background: #f0f9eb;
 }
 #resource-manag-chemicals .table{
-    width:90%;  
-    margin:auto;
+    widows: 95vw;  
+    margin-left:auto;
+    margin-right:auto;
+    padding:0 1em;
+}
+#resource-manag-chemicals .retrieval-top{
+    background-color: white;
+    height:6vh;
+    line-height: 6vh;
+    padding-left: 1em;
+    color: #457EDD;
+    font-size: larger;
+}
+#resource-manag-chemicals .item .input{
+    margin-left:auto;
+    margin-right:auto;
+    margin:0 1em;
+    padding:0 1em;
+    height: 8vh;
+}
+#resource-manag-chemicals  .title{
+    border-bottom: 1px solid #C7D8F5;
+    line-height: 1.8em;
+    color: #457EDD;
+    font-weight: 70vw;
+}
+#resource-manag-chemicals .item{
+    /* height:20vh; */
+    background-color: white;
+    padding: 1.5vh 2vh;
 }
