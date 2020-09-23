@@ -26,15 +26,15 @@ export default{
         },
         {
             "menu-item-name":"物资管理",
-            "path":"/source-manage",
+            "path":"/resource-manag",
             "sub_menu":[
                 {
                     "menu-item-name":"化学药品管理",
-                    "path":"/chemical-manag"
+                    "path":"/chemicals"
                 },
                 {
                     "menu-item-name":"实验设备管理",
-                    "path":"/device-manag"
+                    "path":"/devices"
                 }
             ],
             "icon":"el-icon-box"

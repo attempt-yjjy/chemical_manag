@@ -1,0 +1,16 @@
+#resource-manag-chemicals .el-select{
+    margin-left: 20px;
+}
+#resource-manag-chemicals .el-input-number{
+    margin-left: 20px;
+}
+#resource-manag-chemicals .el-table .warning-row {
+    background: oldlace;
+}
+#resource-manag-chemicals .el-table .success-row {
+    background: #f0f9eb;
+}
+#resource-manag-chemicals .table{
+    width:90%;  
+    margin:auto;
+}

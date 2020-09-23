@@ -1,0 +1,20 @@
+#resource-manag-devices .retrieval-top{
+    float: left;
+}
+#resource-manag-devices .el-select{
+    margin-left: 20px;
+}
+#resource-manag-devices .el-input-number{
+    margin-left: 20px;
+}
+#resource-manag-devices .el-table .warning-row {
+    background: oldlace;
+}
+
+#resource-manag-devices .el-table .success-row {
+    background: #f0f9eb;
+}
+#resource-manag-devices .table{
+    width:90%;  
+    margin:auto;
+}

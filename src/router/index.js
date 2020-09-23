@@ -79,6 +79,24 @@ const routes = [
   {
     path:"/data-statistics",
     component:()=>import("views/data-statistics.vue")
+  },
+  {
+    path:'/resource-manag',
+    component:()=>import('views/resource-manag.vue'),
+    children:[
+      {
+        path:'/resource-manag/',
+        redirectTo:'/resource-manag/chemicals'
+      },
+      {
+        path:'/resource-manag/chemicals',
+        component:()=>import('views/resource-manag/chemicals.vue')
+      },
+      {
+        path:'/resource-manag/devices',
+        component:()=>import('views/resource-manag/devices.vue')
+      }
+    ]
   }
 ]
 
