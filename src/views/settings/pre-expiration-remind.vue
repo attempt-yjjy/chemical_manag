@@ -1,9 +1,7 @@
 <template>
   <div id='pre-expiration-remind'>
       <div class="item">
-          <div class="title">
-              <span>预到期提醒</span>
-          </div>
+          <simple-title-bar title-text="预到期提醒"></simple-title-bar>
           <div class="item-body">
               <div class="name-input-container">
                   <span><span class="necessary_mark">*</span>药品名称:</span>
@@ -20,6 +18,7 @@
   </div>
 </template>
 <script>
+import SimpleTitleBar from 'components/common/simple-title-bar.vue'
   export default {
     name:'',
     props:{
@@ -29,6 +28,9 @@
         return{
             name:""
         }
+    },
+    components:{
+      SimpleTitleBar
     }
   }
 </script>

@@ -9,12 +9,6 @@
     padding: 1.5vh 2vh;
 }
 
-#pre-expiration-remind .item .title{
-    border-bottom: 1px solid #C7D8F5;
-    line-height: 1.8em;
-    color: #457EDD;
-    font-weight: 700;
-}
 
 #pre-expiration-remind .item .item-body{
     height:16vh;

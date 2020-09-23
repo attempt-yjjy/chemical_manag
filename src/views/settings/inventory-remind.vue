@@ -1,9 +1,7 @@
 <template>
   <div id='inventory-remind'>
       <div class="item">
-          <div class="title">
-              <span>库存提醒</span>
-          </div>
+          <simple-title-bar title-text="库存提醒"></simple-title-bar>
           <div class="item-body">
               <div class="name-input-container">
                   <span><span class="necessary_mark">*</span>药品/设备名称:</span>
@@ -20,6 +18,7 @@
   </div>
 </template>
 <script>
+import SimpleTitleBar from 'components/common/simple-title-bar.vue'
   export default {
     name:'',
     props:{
@@ -30,6 +29,9 @@
             name:"",
             number:0
         }
+    },
+    components:{
+      SimpleTitleBar
     }
   }
 </script>

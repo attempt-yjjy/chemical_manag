@@ -6,7 +6,7 @@
     </div>
     <div class="main">
       <div class="output-chart-container chart-container">
-        <div class="title">出库详情</div>
+        <simple-title-bar title-text="出库详情"></simple-title-bar>
         <div class="search">
             <el-date-picker v-model="output_search"></el-date-picker>
             <el-button type="primary">搜索</el-button>
@@ -14,7 +14,7 @@
         <div id="test1"></div>
       </div>
       <div class="input-chart-container chart-container">
-        <div class="title">入库详情</div>
+        <simple-title-bar title-text="入库详情"></simple-title-bar>
         <div class="search">
             <el-date-picker v-model="input_search"></el-date-picker>
             <el-button type="primary">搜索</el-button>
@@ -22,19 +22,34 @@
         <div id="test2"></div>
       </div>
       <div class="data-block-container">
-          <div class="data-block"></div>
-          <div class="data-block"></div>
-          <div class="data-block"></div>
-          <div class="data-block"></div>
-          <div class="user-record-block"></div>
+          <div class="data-block">
+            <simple-title-bar title-text="药品总库存"></simple-title-bar>
+            <large-num  line-height="20vh"></large-num>
+          </div>
+          <div class="data-block">
+            <simple-title-bar title-text="设备总库存"></simple-title-bar>
+            <large-num  line-height="20vh"></large-num>
+          </div>
+          <div class="data-block">
+            <simple-title-bar title-text="库存不足总量"></simple-title-bar>
+            <large-num  line-height="20vh"></large-num>
+          </div>
+          <div class="data-block">
+            <simple-title-bar title-text="预到期总量"></simple-title-bar>
+            <large-num  line-height="20vh"></large-num>
+          </div>
+          <div class="user-record-block">
+            <simple-title-bar title-text="今日使用人员详情"></simple-title-bar>
+          </div>
       </div>
       
     </div>
   </div>
 </template>
 <script>
-import echarts from "echarts";
-
+import echarts from "echarts"
+import SimpleTitleBar from "components/common/simple-title-bar"
+import LargeNum from 'components/common/large-num.vue'
 export default {
   name: "",
   props: {},
@@ -43,6 +58,10 @@ export default {
           input_search:new Date(),
           output_search:new Date()
       }
+  },
+  components:{
+    SimpleTitleBar,
+    LargeNum
   },
   mounted() {
     let myChart1 = echarts.init(document.getElementById("test1"));
