@@ -1,14 +1,14 @@
 <template>
   <div id="resource-manag-devices">
     <el-container direction="vertical">
-      <div class="retrieval-top">
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item>物资管理</el-breadcrumb-item>
-          <el-breadcrumb-item>实验设备管理</el-breadcrumb-item>
-        </el-breadcrumb>
-      </div>
       <el-main>
+        <div class="retrieval-top">
+          <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>物资管理</el-breadcrumb-item>
+            <el-breadcrumb-item>实验设备管理</el-breadcrumb-item>
+          </el-breadcrumb>
+        </div>
         <div>
           <template>
             <el-select v-model="value1" filterable placeholder="请输入设备名">
