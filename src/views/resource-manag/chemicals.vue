@@ -1,14 +1,14 @@
 <template>
-    <div id="resource-manag-chemicals">
-        <div class="item">
-            <!-- <div class="retrieval-top">
+  <div id="resource-manag-chemicals">
+    <div class="item">
+      <!-- <div class="retrieval-top">
                 <span> | </span>
                 <span> &nbsp;化学药品管理</span>
-            </div> -->
-            <!-- <div class="title">
+      </div>-->
+      <!-- <div class="title">
                 <span>库存提醒</span>
-            </div> -->
-            <!-- <div class="input">
+      </div>-->
+      <!-- <div class="input">
                 <template>
                     <el-select v-model="value1" filterable placeholder="请输入药品名">
                         <el-option
@@ -54,59 +54,53 @@
                 <el-button style="margin-left: 20px" type="primary" icon="el-icon-search">搜索</el-button>
                 <el-button style="margin-left: 20px" type="success" icon="el-icon-download">导出</el-button>
                 <el-button style="margin-left: 20px" type="danger" @click="toggleSelection()">取消选择</el-button>
-            </div> -->
-            <div class="input">
-                <div>
-                    <el-button type="primary">导出表格</el-button>
-                        <el-select v-model="value" filterable placeholder="全部">
-                            <el-option
-                                v-for="item in options"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value"
-                            ></el-option>
-                        </el-select>
-                    <el-button type="primary">筛选</el-button>
-                    <div >
-                        <el-input
-                            placeholder="请输入内容"
-                            suffix-icon="el-icon-search"
-                            v-model="input2"
-                            clearable>
-                        </el-input>
-                        <el-button type="primary">搜索</el-button>
-                    </div>
-                </div>
-            </div>
-            <div class="table">
-                <template>
-                    <el-table
-                        ref="multipleTable"
-                        :data="tableData"
-                        border
-                        :row-class-name="tableRowClassName"
-                        highlight-current-row
-                        @selection-change="handleSelectionChange"
-                         >
-                        <el-table-column align=center type="selection"></el-table-column>
-                        <el-table-column align=center type="index"></el-table-column>
-                        <el-table-column align=center prop="cname" label="药品名称"></el-table-column>
-                        <el-table-column align=center prop="ctype" label="药品类型"></el-table-column>
-                        <el-table-column align=center prop="cnum" label="药品数量"></el-table-column>
-                        <el-table-column align=center prop="ccabinet" label="药柜位置"></el-table-column>
-                        <el-table-column align=center prop="cexp" label="保质日期"></el-table-column>
-                        <el-table-column align=center prop="cunit" label="单位"></el-table-column>
-                        <el-table-column align=center prop="cstatus" label="药品状态"></el-table-column>
-                        <el-table-column align=center fixed="right" label="操作" width="100">
-                            <template >
-                                <el-button type="text" size="small">修改</el-button>
-                            </template>
-                        </el-table-column>
-                    </el-table>
-                </template>
-            </div>
-        </div>
+      </div>-->
+      <div class="input">
+        <el-button type="primary">导出表格</el-button>
+        <div class="split-div1"></div>
+        <el-select v-model="value" filterable placeholder="全部">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+        <el-button type="primary">筛选</el-button>
+        <div class="split-div2"></div>
+        <el-input placeholder="请输入内容" suffix-icon="el-icon-search" v-model="input2" clearable></el-input>
+        <el-button type="primary">搜索</el-button>
+      </div>
+      <div class="table">
+        <template>
+          <el-table
+            ref="multipleTable"
+            :data="tableData"
+            border
+            :row-class-name="tableRowClassName"
+            highlight-current-row
+            @selection-change="handleSelectionChange"
+          >
+            <el-table-column align="center" type="selection"></el-table-column>
+            <el-table-column align="center" type="index"></el-table-column>
+            <el-table-column align="center" prop="cname" label="药品名称"></el-table-column>
+            <el-table-column align="center" prop="ctype" label="药品类型"></el-table-column>
+            <el-table-column align="center" prop="cnum" label="药品数量"></el-table-column>
+            <el-table-column align="center" prop="ccabinet" label="药柜位置"></el-table-column>
+            <el-table-column align="center" prop="cexp" label="保质日期"></el-table-column>
+            <el-table-column align="center" prop="cunit" label="单位"></el-table-column>
+            <el-table-column align="center" prop="cstatus" label="药品状态"></el-table-column>
+            <el-table-column align="center" fixed="right" label="操作" width="100">
+              <template>
+                <el-button type="text" size="small">修改</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <el-pagination background layout="prev, pager, next" :total="300"></el-pagination>
+        </template>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
@@ -220,6 +214,78 @@ export default {
           cunit: "盒",
           cstatus: "",
         },
+        {
+          cname: "罗红霉素",
+          ctype: "抗生素",
+          cnum: "60",
+          ccabinet: "BD-kcn001",
+          cexp: "2020-10-30",
+          cunit: "盒",
+          cstatus: "",
+        },
+        {
+          cname: "罗红霉素",
+          ctype: "抗生素",
+          cnum: "60",
+          ccabinet: "BD-kcn001",
+          cexp: "2020-10-30",
+          cunit: "盒",
+          cstatus: "",
+        },
+        {
+          cname: "罗红霉素",
+          ctype: "抗生素",
+          cnum: "60",
+          ccabinet: "BD-kcn001",
+          cexp: "2020-10-30",
+          cunit: "盒",
+          cstatus: "",
+        },
+        {
+          cname: "罗红霉素",
+          ctype: "抗生素",
+          cnum: "60",
+          ccabinet: "BD-kcn001",
+          cexp: "2020-10-30",
+          cunit: "盒",
+          cstatus: "",
+        },
+        {
+          cname: "罗红霉素",
+          ctype: "抗生素",
+          cnum: "60",
+          ccabinet: "BD-kcn001",
+          cexp: "2020-10-30",
+          cunit: "盒",
+          cstatus: "",
+        },
+        {
+          cname: "罗红霉素",
+          ctype: "抗生素",
+          cnum: "60",
+          ccabinet: "BD-kcn001",
+          cexp: "2020-10-30",
+          cunit: "盒",
+          cstatus: "",
+        },
+        {
+          cname: "罗红霉素",
+          ctype: "抗生素",
+          cnum: "60",
+          ccabinet: "BD-kcn001",
+          cexp: "2020-10-30",
+          cunit: "盒",
+          cstatus: "",
+        },
+        {
+          cname: "罗红霉素",
+          ctype: "抗生素",
+          cnum: "60",
+          ccabinet: "BD-kcn001",
+          cexp: "2020-10-30",
+          cunit: "盒",
+          cstatus: "",
+        },
       ],
 
       currentRow: null,
@@ -228,7 +294,7 @@ export default {
       value2: "",
       value3: "",
       value: "",
-      input2: '',
+      input2: "",
     };
   },
   methods: {
@@ -257,7 +323,7 @@ export default {
     },
     handleSelectionChange(val) {
       this.multipleSelection = val;
-    }
+    },
   },
 };
 </script>
