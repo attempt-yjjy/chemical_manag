@@ -44,11 +44,11 @@ import { log } from 'util'
     methods:{
         itemBeClick(item){
           if(item["sub_menu"].length == 0){
-            this.$router.push(item["path"])
+            this.$router.push('/main' + item["path"])
           }
         },
         subBeClick(item,item_sub){
-          this.$router.push(item["path"] + item_sub["path"])
+          this.$router.push('/main' + item["path"] + item_sub["path"])
         }
     }
   }

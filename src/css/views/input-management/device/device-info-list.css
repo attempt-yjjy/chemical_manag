@@ -27,12 +27,6 @@
     justify-content: center;
 }
 
-#input-device>.el-container span:nth-child(2){
-    color: #606266;
-    font-size: larger;
-    font-weight: 500;
-}
-
 #input-device>.el-container>.el-main .demo-table-expand {
     font-size: 0;
     color:#606266;

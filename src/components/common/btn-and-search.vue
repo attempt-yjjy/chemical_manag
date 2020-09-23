@@ -1,7 +1,7 @@
 <template>
-  <div class='btn-and-search'>
-      <el-button :icon="PreBtnIcon" type="primary" :style="{'width':buttonWidth(PreBtnText) + 'em'}">{{PreBtnText}}</el-button>
-      <div class="split-div"></div>
+  <div class='btn-and-search' :style="{'display':(OnlySearch?'block':'flex')}">
+      <el-button v-if="!OnlySearch" :icon="PreBtnIcon" type="primary" :style="{'width':buttonWidth(PreBtnText) + 'em'}">{{PreBtnText}}</el-button>
+      <div v-if="!OnlySearch" class="split-div"></div>
       <el-input :suffix-icon="SufInputIcon"></el-input>
       <el-button type="primary" :style="{'width':buttonWidth(SufBtnText) + 'em'}">{{SufBtnText}}</el-button>
   </div>
@@ -25,6 +25,10 @@
       SufBtnText:{
           type:String,
           default:"搜索"
+      },
+      OnlySearch:{
+          type:Boolean,
+          default:false
       }
     },
     methods:{

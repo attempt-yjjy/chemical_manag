@@ -2,7 +2,7 @@
   <div id="return-input" class="input-main">
     <el-container>
       <el-main>
-        <el-button @click="drawer_show = !drawer_show" class="button_open" type="primary">打开检索</el-button>
+        <!-- <el-button @click="drawer_show = !drawer_show" class="button_open" type="primary">打开检索</el-button>
         <el-drawer
           title="外借列表"
           :visible="drawer_show"
@@ -45,19 +45,22 @@
               <el-button type="primary">开始检索</el-button>
             </div>
           </div>
-        </el-drawer>
+        </el-drawer> -->
+        <btn-and-search pre-btn-text="入库新药品信息" :only-search="true"></btn-and-search>
         <el-table 
           :data="tableData" 
-          style="width: 100%"
-          stripe
-          @cell-click="tableClick"
-          >
+          stripe 
+          border
+          :cell-style="{'text-align':'center'}"
+          :header-cell-style="{'text-align':'center'}"
+          @cell-click="tableClick">
           <el-table-column type="expand">
             <template slot-scope="props">
               <el-form label-position="left" inline class="demo-table-expand">
                 <el-form-item label="批准人">
                   <span>{{ props.row.approver }}</span>
-                </el-form-item><br />
+                </el-form-item>
+                <br />
               </el-form>
             </template>
           </el-table-column>
@@ -76,13 +79,14 @@
           background
           layout="prev, pager, next,jumper"
           :total="1000"
-          @current-change="pageChange">
-        </el-pagination>
+          @current-change="pageChange"
+        ></el-pagination>
       </el-main>
     </el-container>
   </div>
 </template>
 <script>
+import BtnAndSearch from "components/common/btn-and-search.vue"
 export default {
   name: "",
   props: {},
@@ -98,20 +102,23 @@ export default {
         who_input: "",
         who_check: "",
       },
-      tableData:[]
+      tableData: [],
     };
+  },
+  components:{
+    BtnAndSearch
   },
   methods: {
     handleClose(done) {
       this.drawer_show = false;
       done();
     },
-    tableClick(row, column, cell, event){
-      console.log(row,column)
+    tableClick(row, column, cell, event) {
+      console.log(row, column);
     },
-    pageChange(pageIndex){
-      console.log(pageIndex)
-    }
+    pageChange(pageIndex) {
+      console.log(pageIndex);
+    },
   },
 };
 </script>

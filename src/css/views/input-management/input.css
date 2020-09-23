@@ -2,6 +2,10 @@
     height: 100%;
 }
 
+.input-main{
+    height:90% !important;
+}
+
 .input-main>.el-container>.el-main{
     margin:1em;
     padding: 1em !important;

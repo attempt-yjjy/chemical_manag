@@ -27,12 +27,6 @@
     justify-content: center;
 }
 
-#output-chemical>.el-container span:nth-child(2){
-    color: #606266;
-    font-size: larger;
-    font-weight: 500;
-}
-
 #output-chemical>.el-container>.el-main .demo-table-expand {
     font-size: 0;
     color:#606266;

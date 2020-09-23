@@ -6,16 +6,16 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path:'/user-manag',
-    component:()=>import('views/user-manag.vue'),
+    path:'/main/user-manag',
+    component:()=>import('views/main/user-manag.vue'),
     children:[
       {
-        path:"/user-manag",
-        redirectTo:'/user-manag/user-manag'
+        path:"/main/user-manag",
+        redirectTo:'/main/user-manag/user-manag'
       },
       {
-        path:"/user-manag/common-user-manag",
-        component:()=>import("views/user-manag/common-user-manag.vue"),
+        path:"/main/user-manag/common-user-manag",
+        component:()=>import("views/main/user-manag/common-user-manag.vue"),
         meta:{
           sub_name:"用户管理"
         }
@@ -23,37 +23,37 @@ const routes = [
     ]
   },
   {
-    path:'/input-manag',
-    component:()=>import('views/input-management.vue'),
+    path:'/main/input-manag',
+    component:()=>import('views/main/input-management.vue'),
     children:[
       {
-        path:"/input-manag/",
-        redirectTo:"/input-manag/chemical-info-list"
+        path:"/main/input-manag/",
+        redirectTo:"/main/input-manag/chemical-info-list"
       },
       {
-        path:'/input-manag/chemical-info-list',
-        component:()=>import('views/input/chemical-info-list.vue'),
+        path:'/main/input-manag/chemical-info-list',
+        component:()=>import('views/main/input/chemical-info-list.vue'),
         meta:{
           sub_name:"化学药品信息列表"
         }
       },
       {
-        path:'/input-manag/device-info-list',
-        component:()=>import('views/input/device-info-list.vue'),
+        path:'/main/input-manag/device-info-list',
+        component:()=>import('views/main/input/device-info-list.vue'),
         meta:{
           sub_name:"设备信息列表"
         }
       },
       {
-        path:'/input-manag/entering-info',
-        component:()=>import('views/input/entering-info.vue'),
+        path:'/main/input-manag/entering-info',
+        component:()=>import('views/main/input/entering-info.vue'),
         meta:{
           sub_name:"录入入库信息"
         }
       },
       {
-        path:'/input-manag/return-input',
-        component:()=>import('views/input/return-input.vue'),
+        path:'/main/input-manag/return-input',
+        component:()=>import('views/main/input/return-input.vue'),
         meta:{
           sub_name:"设备归还"
         }
@@ -61,23 +61,23 @@ const routes = [
     ]
   },
   {
-    path:"/output-manag",
-    component:()=>import('views/output-management.vue'),
+    path:"/main/output-manag",
+    component:()=>import('views/main/output-management.vue'),
     children:[
       {
-        path:"/output-manag/",
-        redirectTo:"/output-manag/chemical-info-list"
+        path:"/main/output-manag/",
+        redirectTo:"/main/output-manag/chemical-info-list"
       },
       {
-        path:'/output-manag/chemical-info-list',
-        component:()=>import('views/output/chemical-info-list.vue'),
+        path:'/main/output-manag/chemical-info-list',
+        component:()=>import('views/main/output/chemical-info-list.vue'),
         meta:{
           sub_name:"化学药品"
         }
       },
       {
-        path:'/output-manag/device-info-list',
-        component:()=>import('views/output/device-info-list.vue'),
+        path:'/main/output-manag/device-info-list',
+        component:()=>import('views/main/output/device-info-list.vue'),
         meta:{
           sub_name:"设备"
         }
@@ -85,19 +85,19 @@ const routes = [
     ]
   },
   {
-    path:"/setting",
-    component:()=>import('views/setting.vue'),
+    path:"/main/setting",
+    component:()=>import('views/main/setting.vue'),
     children:[
       {
-        path:'/setting/inventory-remind',
-        component:()=>import("views/settings/inventory-remind.vue"),
+        path:'/main/setting/inventory-remind',
+        component:()=>import("views/main/settings/inventory-remind.vue"),
         meta:{
           sub_name:"库存提醒"
         }
       },
       {
-        path:'/setting/pre-expiration-remind',
-        component:()=>import("views/settings/pre-expiration-remind.vue"),
+        path:'/main/setting/pre-expiration-remind',
+        component:()=>import("views/main/settings/pre-expiration-remind.vue"),
         meta:{
           sub_name:"预到期提醒"
         }
@@ -105,31 +105,31 @@ const routes = [
     ]
   },
   {
-    path:"/data-statistics",
-    component:()=>import("views/data-statistics.vue")
+    path:"/main/data-statistics",
+    component:()=>import("views/main/data-statistics.vue")
   },
   {
-    path:"/inform-manag",
-    component:()=>import("views/inform-manag.vue")
+    path:"/main/inform-manag",
+    component:()=>import("views/main/inform-manag.vue")
   },
   {
-    path:'/resource-manag',
-    component:()=>import('views/resource-manag.vue'),
+    path:'/main/resource-manag',
+    component:()=>import('views/main/resource-manag.vue'),
     children:[
       {
-        path:'/resource-manag/',
-        redirectTo:'/resource-manag/chemicals'
+        path:'/main/resource-manag/',
+        redirectTo:'/main/resource-manag/chemicals'
       },
       {
-        path:'/resource-manag/chemicals',
-        component:()=>import('views/resource-manag/chemicals.vue'),
+        path:'/main/resource-manag/chemicals',
+        component:()=>import('views/main/resource-manag/chemicals.vue'),
         meta:{
           sub_name:"化学药品管理"
         }
       },
       {
-        path:'/resource-manag/devices',
-        component:()=>import('views/resource-manag/devices.vue'),
+        path:'/main/resource-manag/devices',
+        component:()=>import('views/main/resource-manag/devices.vue'),
         meta:{
           sub_name:"实验设备管理"
         }
