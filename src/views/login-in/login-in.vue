@@ -54,11 +54,12 @@ import post from 'js/common/request/post/post_request.js'
     },
     methods:{
         login_in(){
-            post("/login-in",{
-                data:this.login_info
-            }).then(result=>{
-                console.log(result.data);
-            })
+            // post("/login-in",{
+            //     data:this.login_info
+            // }).then(result=>{
+            //     console.log(result.data);
+            // })
+            this.$router.push("/main")
         }
     }
   }

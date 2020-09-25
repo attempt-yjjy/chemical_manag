@@ -11,7 +11,7 @@ const routes_main = [
     children:[
       {
         path:"/main/user-manag",
-        redirectTo:'/main/user-manag/user-manag'
+        redirect:'/main/user-manag/common-user-manag'
       },
       {
         path:"/main/user-manag/common-user-manag",
@@ -28,7 +28,7 @@ const routes_main = [
     children:[
       {
         path:"/main/input-manag/",
-        redirectTo:"/main/input-manag/chemical-info-list"
+        redirect:"/main/input-manag/chemical-info-list"
       },
       {
         path:'/main/input-manag/chemical-info-list',
@@ -66,7 +66,7 @@ const routes_main = [
     children:[
       {
         path:"/main/output-manag/",
-        redirectTo:"/main/output-manag/chemical-info-list"
+        redirect:"/main/output-manag/chemical-info-list"
       },
       {
         path:'/main/output-manag/chemical-info-list',
@@ -118,7 +118,7 @@ const routes_main = [
     children:[
       {
         path:'/main/resource-manag/',
-        redirectTo:'/main/resource-manag/chemicals'
+        redirect:'/main/resource-manag/chemicals'
       },
       {
         path:'/main/resource-manag/chemicals',
@@ -140,11 +140,16 @@ const routes_main = [
 
 const routes = [
   {
+    path:'/',
+    redirect:'/login-in'
+  },
+  {
     path:'/login-in',
     component:()=>import('views/login-in/login-in.vue')
   },
   {
     path:'/main',
+    redirect:'/main/user-manag',
     component:()=>import('views/main/main.vue'),
     children:routes_main
   }
