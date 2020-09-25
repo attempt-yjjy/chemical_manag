@@ -161,8 +161,13 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to,from,next)=>{
-  console.log(store.state.currentSubPath = to.meta.sub_name)
-  next()
+  if(to.path != '/login-in' && !store.state.loginInStore.isLogined){
+    console.log("请先登录!")
+    next('/login-in')
+  }else{
+    store.state.currentSubPath = to.meta.sub_name
+    next()
+  }
 })
 
 export default router

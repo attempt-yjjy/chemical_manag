@@ -3,17 +3,19 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import loginInStore from './login-in/login-in-store.js'
+
 export default new Vuex.Store({
   state: {
     currentSubPath:null
   },
   mutations: {
-    setCurrentSubPath(){
-      console.log(this.$route)
-    }
+  
   },
   actions: {
   },
   modules: {
+    loginInStore
   }
 })
+
