@@ -15,5 +15,8 @@ module.exports={
         .set("json",resolve("./src/json"))
         //set第一个参数：设置的别名，第二个参数：设置的路径
 　　　　
+    },
+    devServer: {
+        port: 8090  // 此处修改你想要的端口号，
     }
 }

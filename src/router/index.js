@@ -4,7 +4,7 @@ import store from '../store/index'
 
 Vue.use(VueRouter)
 
-const routes = [
+const routes_main = [
   {
     path:'/main/user-manag',
     component:()=>import('views/main/user-manag.vue'),
@@ -135,6 +135,18 @@ const routes = [
         }
       }
     ]
+  }
+]
+
+const routes = [
+  {
+    path:'/login-in',
+    component:()=>import('views/login-in/login-in.vue')
+  },
+  {
+    path:'/main',
+    component:()=>import('views/main/main.vue'),
+    children:routes_main
   }
 ]
 

@@ -1,24 +1,24 @@
 @import '~css/generate.css';
 
 
-#app>.el-container{
+#main>.el-container{
     height:100vh;
   }
 
-  #app>.el-container>.el-container{
+  #main>.el-container>.el-container{
     height: 80vh;
   }
 
-  #app>.el-container>.el-header{
+  #main>.el-container>.el-header{
     height:10vh;
     background-color:#457EDD;
   }
 
-  #app>.el-container>.el-container>.el-main{
+  #main>.el-container>.el-container>.el-main{
     height:100%;
   }
 
-  #app>.el-container>.el-container>.el-aside{
+  #main>.el-container>.el-container>.el-aside{
     background-color:#343641;
     width:13% !important;
   }
