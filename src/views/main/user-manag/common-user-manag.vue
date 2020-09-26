@@ -58,7 +58,7 @@
           <el-input placeholder="请输入内容" v-model="search_input">
             <i slot="suffix" class="el-input__icon el-icon-search"></i>
           </el-input>
-          <el-button type="primary">搜索</el-button>
+          <el-button type="primary" @click="fuzzySearch">搜索</el-button>
           <el-button type="primary" plain @click="switch_show('users')">查看全部</el-button>
         </div>
         <div class="for-table">
@@ -268,16 +268,22 @@ export default {
       return identityCodeToName(value);
     },
     switch_show(value) {
-      console.log("切换！");
       this.current_type = value;
       let path_count = "/" + this.current_type + "_get_count";
       get(path_count).then(result => {
         let data = result.data;
+        console.log(data)
         this.data_total = data.reply;
       });
 
       this.changePage(1);
       this.current_page = 1;
+    },
+    fuzzySearch(){
+      get('/users_fuzzy',{pattern:this.search_input}).then(result=>{
+        let data = result.data;
+        this.tableData = data.reply;
+      })
     }
   }
 };
