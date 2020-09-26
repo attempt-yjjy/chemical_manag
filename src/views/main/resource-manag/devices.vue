@@ -42,7 +42,15 @@
                 </template>
               </el-table-column>
             </el-table>
-            <el-pagination background layout="prev, pager, next" :total="300"></el-pagination>
+            <el-pagination
+              background
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+              :current-page="currentPage"
+              :page-size="10"
+              layout="prev, pager, next, total, jumper"
+              :total="200">
+            </el-pagination>
           </template>
         </div>
     </div>
@@ -116,6 +124,7 @@ export default {
       value1: "",
       value2: "",
       value3: "",
+      currentPage: 5,
     };
   },
   methods: {
@@ -145,9 +154,12 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
     },
-    handleClick(row) {
-      console.log(row);
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
     },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    }
   },
 };
 </script>
