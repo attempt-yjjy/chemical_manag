@@ -14,7 +14,7 @@
         </el-select>
         <el-button type="primary">筛选</el-button>
         <div class="split-div2"></div>
-        <el-input placeholder="请输入内容" suffix-icon="el-icon-search" v-model="input2" clearable></el-input>
+        <el-input placeholder="请输入内容" suffix-icon="el-icon-search" v-model="input" clearable></el-input>
         <el-button type="primary">搜索</el-button>
       </div>
       <div class="table">
@@ -206,42 +206,6 @@ export default {
           cunit: "盒",
           cstatus: "",
         },
-        {
-          cname: "罗红霉素",
-          ctype: "抗生素",
-          cnum: "60",
-          ccabinet: "BD-kcn001",
-          cexp: "2020-10-30",
-          cunit: "盒",
-          cstatus: "",
-        },
-        {
-          cname: "罗红霉素",
-          ctype: "抗生素",
-          cnum: "60",
-          ccabinet: "BD-kcn001",
-          cexp: "2020-10-30",
-          cunit: "盒",
-          cstatus: "",
-        },
-        {
-          cname: "罗红霉素",
-          ctype: "抗生素",
-          cnum: "60",
-          ccabinet: "BD-kcn001",
-          cexp: "2020-10-30",
-          cunit: "盒",
-          cstatus: "",
-        },
-        {
-          cname: "罗红霉素",
-          ctype: "抗生素",
-          cnum: "60",
-          ccabinet: "BD-kcn001",
-          cexp: "2020-10-30",
-          cunit: "盒",
-          cstatus: "",
-        },
       ],
 
       currentRow: null,
@@ -250,7 +214,7 @@ export default {
       value2: "",
       value3: "",
       value: "",
-      input2: "",
+      input: "",
       currentPage: 5,
     };
   },
@@ -282,11 +246,11 @@ export default {
       this.multipleSelection = val;
     },
     handleSizeChange(val) {
-        console.log(`每页 ${val} 条`);
-      },
-      handleCurrentChange(val) {
-        console.log(`当前页: ${val}`);
-      }
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    }
   },
 };
 </script>

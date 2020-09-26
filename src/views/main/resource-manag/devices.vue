@@ -14,7 +14,7 @@
           </el-select>
           <el-button type="primary">筛选</el-button>
           <div class="split-div2"></div>
-          <el-input placeholder="请输入内容" suffix-icon="el-icon-search" v-model="input2" clearable></el-input>
+          <el-input placeholder="请输入内容" suffix-icon="el-icon-search" v-model="input" clearable></el-input>
           <el-button type="primary">搜索</el-button>
         </div>
         <div class="table">
@@ -124,6 +124,8 @@ export default {
       value1: "",
       value2: "",
       value3: "",
+      value: "",
+      input: "",
       currentPage: 5,
     };
   },
