@@ -1,60 +1,6 @@
 <template>
   <div id="resource-manag-chemicals">
     <div class="item">
-      <!-- <div class="retrieval-top">
-                <span> | </span>
-                <span> &nbsp;化学药品管理</span>
-      </div>-->
-      <!-- <div class="title">
-                <span>库存提醒</span>
-      </div>-->
-      <!-- <div class="input">
-                <template>
-                    <el-select v-model="value1" filterable placeholder="请输入药品名">
-                        <el-option
-                            v-for="item in options1"
-                            :key="item.value1"
-                            :label="item.label1"
-                            :value="item.value1"
-                        ></el-option>
-                    </el-select>
-                </template>
-
-                <template>
-                    <el-select v-model="value2" filterable placeholder="请选择类型">
-                        <el-option
-                        v-for="item in options2"
-                        :key="item.value2"
-                        :label="item.label2"
-                        :value="item.value2"
-                        ></el-option>
-                    </el-select>
-                </template>
-
-                <template>
-                    <el-input-number
-                        v-model="num"
-                        @change="handleChange"
-                        :min="1"
-                        :max="999999"
-                        label="请选择数量"
-                    ></el-input-number>
-                </template>
-
-                <template>
-                    <el-select v-model="value3" filterable placeholder="请选择药品柜">
-                        <el-option
-                            v-for="item in options3"
-                            :key="item.value3"
-                            :label="item.label3"
-                            :value="item.value3"
-                        ></el-option>
-                    </el-select>
-                </template>
-                <el-button style="margin-left: 20px" type="primary" icon="el-icon-search">搜索</el-button>
-                <el-button style="margin-left: 20px" type="success" icon="el-icon-download">导出</el-button>
-                <el-button style="margin-left: 20px" type="danger" @click="toggleSelection()">取消选择</el-button>
-      </div>-->
       <div class="input">
         <el-button type="primary">导出表格</el-button>
         <div class="split-div1"></div>
@@ -79,18 +25,20 @@
             border
             :row-class-name="tableRowClassName"
             highlight-current-row
+            :cell-style="{textAlign:'center'}"
+            :header-cell-style="{textAlign:'center'}"
             @selection-change="handleSelectionChange"
           >
-            <el-table-column align="center" type="selection"></el-table-column>
-            <el-table-column align="center" type="index"></el-table-column>
-            <el-table-column align="center" prop="cname" label="药品名称"></el-table-column>
-            <el-table-column align="center" prop="ctype" label="药品类型"></el-table-column>
-            <el-table-column align="center" prop="cnum" label="药品数量"></el-table-column>
-            <el-table-column align="center" prop="ccabinet" label="药柜位置"></el-table-column>
-            <el-table-column align="center" prop="cexp" label="保质日期"></el-table-column>
-            <el-table-column align="center" prop="cunit" label="单位"></el-table-column>
-            <el-table-column align="center" prop="cstatus" label="药品状态"></el-table-column>
-            <el-table-column align="center" fixed="right" label="操作" width="100">
+            <el-table-column type="selection"></el-table-column>
+            <el-table-column type="index"></el-table-column>
+            <el-table-column prop="cname" label="药品名称"></el-table-column>
+            <el-table-column prop="ctype" label="药品类型"></el-table-column>
+            <el-table-column prop="cnum" label="药品数量"></el-table-column>
+            <el-table-column prop="ccabinet" label="药柜位置"></el-table-column>
+            <el-table-column prop="cexp" label="保质日期"></el-table-column>
+            <el-table-column prop="cunit" label="单位"></el-table-column>
+            <el-table-column prop="cstatus" label="药品状态"></el-table-column>
+            <el-table-column fixed="right" label="操作" width="100">
               <template>
                 <el-button type="text" size="small">修改</el-button>
               </template>

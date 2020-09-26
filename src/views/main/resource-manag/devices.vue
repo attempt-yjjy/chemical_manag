@@ -1,69 +1,32 @@
 <template>
   <div id="resource-manag-devices">
-    <el-container direction="vertical">
-      <el-main>
-        <div class="retrieval-top">
-          <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>物资管理</el-breadcrumb-item>
-            <el-breadcrumb-item>实验设备管理</el-breadcrumb-item>
-          </el-breadcrumb>
-        </div>
-        <div>
-          <template>
-            <el-select v-model="value1" filterable placeholder="请输入设备名">
-              <el-option
-                v-for="item in options1"
-                :key="item.value"
-                :label="item.label1"
-                :value="item.value1"
-              ></el-option>
-            </el-select>
-          </template>
-
-          <template>
-            <el-select v-model="value2" filterable placeholder="请选择类型">
-              <el-option
-                v-for="item in options2"
-                :key="item.value"
-                :label="item.label2"
-                :value="item.value2"
-              ></el-option>
-            </el-select>
-          </template>
-
-          <template>
-            <el-input-number
-              v-model="num"
-              @change="handleChange"
-              :min="1"
-              :max="999999"
-              label="请选择数量"
-            ></el-input-number>
-          </template>
-
-          <template>
-            <el-select v-model="value3" filterable placeholder="请选择设备柜">
-              <el-option
-                v-for="item in options3"
-                :key="item.value"
-                :label="item.label3"
-                :value="item.value3"
-              ></el-option>
-            </el-select>
-          </template>
-          <el-button style="margin-left: 20px" type="primary" icon="el-icon-search">搜索</el-button>
-          <el-button style="margin-left: 20px" type="success" icon="el-icon-download">导出</el-button>
-          <el-button style="margin-left: 20px" type="danger" @click="toggleSelection()">取消选择</el-button>
+    <div class="item">
+        <div class="input">
+          <el-button type="primary">导出表格</el-button>
+          <div class="split-div1"></div>
+          <el-select v-model="value" filterable placeholder="全部">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+          <el-button type="primary">筛选</el-button>
+          <div class="split-div2"></div>
+          <el-input placeholder="请输入内容" suffix-icon="el-icon-search" v-model="input2" clearable></el-input>
+          <el-button type="primary">搜索</el-button>
         </div>
         <div class="table">
           <template>
             <el-table
               ref="multipleTable"
               :data="tableData"
-              height="250"
+              border
               :row-class-name="tableRowClassName"
               highlight-current-row
+              :cell-style="{textAlign:'center'}"
+              :header-cell-style="{textAlign:'center'}"
               @selection-change="handleSelectionChange"
             >
               <el-table-column type="selection"></el-table-column>
@@ -74,16 +37,15 @@
               <el-table-column prop="dcabinet" label="设备柜"></el-table-column>
               <el-table-column prop="dstatus" label="设备状态"></el-table-column>
               <el-table-column fixed="right" label="操作" width="100">
-                <template slot-scope="scope">
-                  <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-                  <el-button type="text" size="small">编辑</el-button>
+                <template>
+                  <el-button type="text" size="small">修改</el-button>
                 </template>
               </el-table-column>
             </el-table>
+            <el-pagination background layout="prev, pager, next" :total="300"></el-pagination>
           </template>
         </div>
-      </el-main>
-    </el-container>
+    </div>
   </div>
 </template>
 <script>
@@ -116,6 +78,28 @@ export default {
           label3: "北京烤鸭",
         },
       ],
+      options: [
+        {
+          value: "选项1",
+          label: "全部",
+        },
+        {
+          value: "选项2",
+          label: "设备名称",
+        },
+        {
+          value: "选项3",
+          label: "设备类型",
+        },
+        {
+          value: "选项4",
+          label: "设备位置",
+        },
+        {
+          value: "选项5",
+          label: "设备状态",
+        },
+      ],
 
       tableData: [
         {
@@ -123,6 +107,7 @@ export default {
           dtype: "玻璃",
           dnum: "60",
           dcabinet: "SB-bl001",
+          dstatus: "",
         },
       ],
 

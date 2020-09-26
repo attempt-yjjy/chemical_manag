@@ -1,11 +1,11 @@
-#resource-manag-devices .retrieval-top{
-    float: left;
+#resource-manag-devices{
+    margin: auto;
 }
 #resource-manag-devices .el-select{
-    margin-left: 20px;
+    margin-left: 2vh;
 }
 #resource-manag-devices .el-input-number{
-    margin-left: 20px;
+    margin-left: 2vh;
 }
 #resource-manag-devices .el-table .warning-row {
     background: oldlace;
@@ -15,6 +15,42 @@
     background: #f0f9eb;
 }
 #resource-manag-devices .table{
-    width:90%;  
-    margin:auto;
+    widows: 95vw;  
+    margin-left:auto;
+    margin-right:auto;
+    padding:0 1em;
+}
+#resource-manag-devices .retrieval-top{
+    background-color: white;
+    height:6vh;
+    line-height: 6vh;
+    padding-left: 1em;
+    color: #457EDD;
+    font-size: larger;
+}
+#resource-manag-devices .item .input{
+    margin:0 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:1.5em 0;
+}
+
+#resource-manag-devices .item .input .split-div1{
+
+    width:38%;
+}
+
+#resource-manag-devices .item .input .split-div2{
+    width: 1%;
+}
+
+#resource-manag-devices .item .input>.el-input{
+    width:25%;
+}
+
+#resource-manag-devices .item{
+    background-color: white;
+    padding: 1em;
 }
