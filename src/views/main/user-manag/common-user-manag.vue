@@ -24,10 +24,7 @@
                 <span>密&nbsp;&nbsp;&nbsp;&nbsp;码:</span>
               </td>
               <td class="input-td">
-                <el-input
-                  v-model="new_info.password"
-                  type="password"
-                ></el-input>
+                <el-input v-model="new_info.password" type="password"></el-input>
               </td>
               <td class="split-td"></td>
 
@@ -81,10 +78,19 @@
             <el-table-column prop="identity_type" label="身份类型"></el-table-column>
             <el-table-column prop="operate" label="操作">
               <template slot-scope="scope">
-                <el-button @click="handleClick(scope.row)" type="text" size="small">
-                  查看
-                </el-button>
-                <el-button type="text" size="small">编辑</el-button>
+                <el-button
+                  @click="showItem(scope.row.username)"
+                  type="text"
+                  size="small"
+                  v-if="scope.row.username != ''"
+                >查看</el-button>
+                <el-button
+                  @click="deleteItem(scope.row.username)"
+                  type="text"
+                  size="small"
+                  v-if="scope.row.username != ''"
+                  :disabled="identityCodeToNameC(scope.row.identity_type) <= $store.state.loginInStore.identity_type"
+                >删除</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -117,7 +123,7 @@ export default {
         name: "",
         username: "",
         password: "",
-        identity_type: "",
+        identity_type: ""
       },
       search_input: "",
       tableData: [],
@@ -125,18 +131,18 @@ export default {
       identity_type_options: {
         高级管理员: 1,
         普通管理员: 2,
-        使用人员: 3,
-      },
+        使用人员: 3
+      }
     };
   },
   mounted() {
-    get("/users_get_count").then((result) => {
+    get("/users_get_count").then(result => {
       let data = result.data;
       this.data_total = data.reply;
     });
-    get("/users_get_onepage", { preNum: 0 }).then((result) => {
+    get("/users_get_onepage", { preNum: 0 }).then(result => {
       let data = result.data;
-      this.tableData = data.reply.map((value) => {
+      this.tableData = data.reply.map(value => {
         let tempvalue = value;
         tempvalue.identity_type = identityCodeToName(value.identity_type);
         return tempvalue;
@@ -146,7 +152,7 @@ export default {
   methods: {
     changePage(value) {
       get("/users_get_onepage", { preNum: (value - 1) * this.pageSize }).then(
-        (result) => {
+        result => {
           let data = result.data;
           if (data.reply.length > 0 && data.reply.length < this.pageSize) {
             let differenceNum = this.pageSize - data.reply.length;
@@ -155,11 +161,11 @@ export default {
                 name: "",
                 username: "",
                 password: "",
-                identity_type: "",
+                identity_type: ""
               });
             }
           }
-          this.tableData = data.reply.map((value) => {
+          this.tableData = data.reply.map(value => {
             let tempvalue = value;
             tempvalue.identity_type = identityCodeToName(value.identity_type);
             return tempvalue;
@@ -175,22 +181,22 @@ export default {
         name: this.new_info.name,
         username: this.new_info.username,
         password: this.new_info.password,
-        identity_type: identityCodeToName(this.new_info.identity_type),
+        identity_type: identityCodeToName(this.new_info.identity_type)
       };
       let data = dataToUrlsearchparams(post_data);
       post("/user_insert", data)
-        .then((result) => {
+        .then(result => {
           let result_data = result.data;
           if (!result_data.reply) {
             this.$message.error("添加失败,请稍后再试!");
           } else {
             this.$message({
               message: "添加成功",
-              type: "success",
+              type: "success"
             });
           }
         })
-        .catch((result) => {
+        .catch(result => {
           this.$message.error("添加失败,请稍后再试!");
         });
     },
@@ -219,10 +225,41 @@ export default {
       this.new_info.password = "";
       this.new_info.identity_type = "";
     },
-    handleClick(value){
-      console.log(value)
+    showItem(username) {},
+    deleteItem(username) {
+      this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          get("/user_delete", { username })
+            .then(result => {
+              let result_data = result.data;
+              if (result_data.success) {
+                this.$message({
+                  message: "删除成功!",
+                  type: "success"
+                });
+              } else {
+                this.$message.error("删除失败!");
+              }
+            })
+            .catch(() => {
+              this.$message.error("删除失败!");
+            });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除"
+          });
+        });
+    },
+    identityCodeToNameC(value){
+      return identityCodeToName(value)
     }
-  },
+  }
 };
 </script>
 <style scoped>

@@ -4,7 +4,7 @@
       <span class="title">化学药品管理系统</span>
     </div>
     <div class="header-operate">
-      <span class="font">欢迎登录 , <span>{{username}}</span></span>
+      <span class="font">欢迎登录 , <span>{{name}}</span></span>
       <div><el-badge is-dot><i class="el-icon-bell"></i></el-badge></div>
       <div><i class="el-icon-s-management"></i></div>
     </div>
@@ -14,9 +14,10 @@
   export default {
     name:'KinHeader',
     props:{
-      username:{
-        type:String,
-        default:"哈哈哈"
+    },
+    computed:{
+      name(){
+        return this.$store.state.loginInStore.name
       }
     }
   }

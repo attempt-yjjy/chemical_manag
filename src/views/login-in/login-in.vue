@@ -92,7 +92,8 @@ export default {
             type: "success",
           });
           this.$store.commit("loginInStore/loginSuccess");
-          this.$store.commit("loginInStore/setIdentityType", 1);
+          this.$store.commit("loginInStore/setIdentityType", post_data.identity_type);
+          this.$store.commit("loginInStore/setName", resultbody.reply.name);
           this.$router.push("/main");
         }
       });
@@ -103,7 +104,7 @@ export default {
         type: "success",
       });
       this.$store.commit("loginInStore/loginSuccess");
-      this.$store.commit("loginInStore/setIdentityType", 1);
+      this.$store.commit("loginInStore/setIdentityType",1);
       this.$router.push("/main");
     },
   },

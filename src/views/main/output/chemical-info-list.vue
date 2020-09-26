@@ -2,50 +2,6 @@
   <div id="output-chemical" class="output-main">
     <el-container>
       <el-main>
-         <!-- <el-drawer
-          title="药品列表检索"
-          :visible="drawer_show"
-          :before-close="handleClose"
-          :modal="false"
-          :size="'20%'"
-          :show-close="false"
-          :withHeader="false"
-        >
-          <div class="all_output_container">
-            <div class="output_container">
-              <label>出库日期 :</label>
-              <el-date-picker v-model="to_index.output_time"></el-date-picker>
-            </div>
-            <div class="output_container">
-              <label>药品名 :</label>
-              <el-input v-model="to_index.chemical_name"></el-input>
-            </div>
-            <div class="output_container">
-              <label>药品类型 :</label>
-              <el-input v-model="to_index.chemical_type"></el-input>
-            </div>
-            <div class="output_container">
-              <label>药品数量 :</label>
-              <el-input v-model="to_index.chemical_count" type="number"></el-input>
-            </div>
-            <div class="output_container">
-              <label>药品柜号 :</label>
-              <el-input v-model="to_index.chemical_cabinet" type="number"></el-input>
-            </div>
-            <div class="output_container">
-              <label>出库人 :</label>
-              <el-input v-model="to_index.who_output"></el-input>
-            </div>
-            <div class="output_container">
-              <label>审批人 :</label>
-              <el-input v-model="to_index.who_check"></el-input>
-            </div>
-            <div class="output_container button-container">
-              <el-button type="primary">开始检索</el-button>
-            </div>
-          </div>
-        </el-drawer>
-        <el-button @click="drawer_show = !drawer_show" class="button_open" type="primary">打开检索</el-button> -->
         <btn-and-search pre-btn-text="出库药品信息"></btn-and-search>
         <el-table 
           :data="tableData" 
