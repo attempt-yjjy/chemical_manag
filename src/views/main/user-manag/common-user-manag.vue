@@ -50,8 +50,8 @@
       </el-header>
       <el-main>
         <div class="for-index">
-          <el-button type="primary">管理员表</el-button>
-          <el-button type="primary" plain>使用人员表</el-button>
+          <el-button type="primary" @click="switch_show('admin')">管理员表</el-button>
+          <el-button type="primary" plain @click="switch_show('common')">使用人员表</el-button>
 
           <div class="split-space"></div>
 
@@ -59,6 +59,7 @@
             <i slot="suffix" class="el-input__icon el-icon-search"></i>
           </el-input>
           <el-button type="primary">搜索</el-button>
+          <el-button type="primary" plain @click="switch_show('users')">查看全部</el-button>
         </div>
         <div class="for-table">
           <el-table
@@ -101,6 +102,7 @@
             layout="prev, pager, next"
             :total="data_total"
             @current-change="changePage"
+            :current-page.sync="current_page"
           ></el-pagination>
         </div>
       </el-main>
@@ -132,15 +134,21 @@ export default {
         高级管理员: 1,
         普通管理员: 2,
         使用人员: 3
-      }
+      },
+      current_type: "users",
+      current_page: 1
     };
   },
   mounted() {
-    get("/users_get_count").then(result => {
+    console.log("执行挂载!");
+    let path_count = "/" + this.current_type + "_get_count";
+    let path_get_page = "/" + this.current_type + "_get_onepage";
+
+    get(path_count).then(result => {
       let data = result.data;
       this.data_total = data.reply;
     });
-    get("/users_get_onepage", { preNum: 0 }).then(result => {
+    get(path_get_page, { preNum: 0 }).then(result => {
       let data = result.data;
       this.tableData = data.reply.map(value => {
         let tempvalue = value;
@@ -151,27 +159,27 @@ export default {
   },
   methods: {
     changePage(value) {
-      get("/users_get_onepage", { preNum: (value - 1) * this.pageSize }).then(
-        result => {
-          let data = result.data;
-          if (data.reply.length > 0 && data.reply.length < this.pageSize) {
-            let differenceNum = this.pageSize - data.reply.length;
-            for (let i = 0; i < differenceNum; ++i) {
-              data.reply.push({
-                name: "",
-                username: "",
-                password: "",
-                identity_type: ""
-              });
-            }
+      let path = "/" + this.current_type + "_get_onepage";
+
+      get(path, { preNum: (value - 1) * this.pageSize }).then(result => {
+        let data = result.data;
+        if (data.reply.length > 0 && data.reply.length < this.pageSize) {
+          let differenceNum = this.pageSize - data.reply.length;
+          for (let i = 0; i < differenceNum; ++i) {
+            data.reply.push({
+              name: "",
+              username: "",
+              password: "",
+              identity_type: ""
+            });
           }
-          this.tableData = data.reply.map(value => {
-            let tempvalue = value;
-            tempvalue.identity_type = identityCodeToName(value.identity_type);
-            return tempvalue;
-          });
         }
-      );
+        this.tableData = data.reply.map(value => {
+          let tempvalue = value;
+          tempvalue.identity_type = identityCodeToName(value.identity_type);
+          return tempvalue;
+        });
+      });
     },
     addRequest() {
       if (!this.verify_not_empyt()) {
@@ -256,8 +264,20 @@ export default {
           });
         });
     },
-    identityCodeToNameC(value){
-      return identityCodeToName(value)
+    identityCodeToNameC(value) {
+      return identityCodeToName(value);
+    },
+    switch_show(value) {
+      console.log("切换！");
+      this.current_type = value;
+      let path_count = "/" + this.current_type + "_get_count";
+      get(path_count).then(result => {
+        let data = result.data;
+        this.data_total = data.reply;
+      });
+
+      this.changePage(1);
+      this.current_page = 1;
     }
   }
 };
