@@ -2,50 +2,6 @@
   <div id="input-device" class="input-main">
     <el-container>
       <el-main>
-        <!-- <el-button @click="drawer_show = !drawer_show" class="button_open" type="primary">打开检索</el-button>
-        <el-drawer
-          title="设备列表检索"
-          :visible="drawer_show"
-          :before-close="handleClose"
-          :modal="false"
-          :size="'20%'"
-          :show-close="false"
-          :withHeader="false"
-        >
-          <div class="all_input_container">
-            <div class="input_container">
-              <label>入库日期 :</label>
-              <el-date-picker v-model="to_index.input_time"></el-date-picker>
-            </div>
-            <div class="input_container">
-              <label>设备名 :</label>
-              <el-input v-model="to_index.device_name"></el-input>
-            </div>
-            <div class="input_container">
-              <label>设备类型 :</label>
-              <el-input v-model="to_index.device_type"></el-input>
-            </div>
-            <div class="input_container">
-              <label>设备数量 :</label>
-              <el-input v-model="to_index.device_count" type="number"></el-input>
-            </div>
-            <div class="input_container">
-              <label>设备柜号 :</label>
-              <el-input v-model="to_index.device_cabinet" type="number"></el-input>
-            </div>
-            <div class="input_container">
-              <label>入库人 :</label>
-              <el-input v-model="to_index.who_input"></el-input>
-            </div>
-            <div class="input_container">
-              <label>审批人 :</label>
-              <el-input v-model="to_index.who_check"></el-input>
-            </div>
-            <div class="input_container button-container">
-              <el-button type="primary">开始检索</el-button>
-            </div>
-          </div>
-        </el-drawer> -->
         <btn-and-search pre-btn-text="入库新设备信息"></btn-and-search>
         <el-table 
           :data="tableData" 
