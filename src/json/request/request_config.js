@@ -1,4 +1,4 @@
 export default{
-    baseUrl:'http://localhost:8099/',
+    baseUrl:'http://192.168.43.226:8099/',
     timeout:4000
 }

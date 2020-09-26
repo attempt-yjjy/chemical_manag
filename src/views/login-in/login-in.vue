@@ -27,9 +27,16 @@
           </el-select>
         </div>
         <div class="login-in-body-btn-container">
-          <el-button type="primary" @click="login_in" :loading="isloading" :disabled="isloading">登录</el-button>
+          <el-button
+            type="primary"
+            @click="login_in"
+            :loading="isloading"
+            :disabled="isloading"
+            >登录
+          </el-button>
         </div>
       </div>
+      <el-button @click="prerogativeEntrance" type="primary">特权入口</el-button>
     </div>
   </div>
 </template>
@@ -38,6 +45,7 @@ import get from "js/common/request/get/get_request.js";
 import post from "js/common/request/post/post_request.js";
 
 import identity_converter from "js/common/translate/identity_code_and_name.js";
+import data_to_urlsearchparams from "js/common/translate/data_to_urlsearchparams.js";
 
 export default {
   name: "",
@@ -54,26 +62,22 @@ export default {
         普通管理员: 2,
         使用人员: 3,
       },
-      isloading:false
+      isloading: false,
     };
   },
   computed: {},
   methods: {
     login_in() {
-      this.isloading = true
+      this.isloading = true;
       let post_data = {
         username: this.login_info.username,
         password: this.login_info.password,
         identity_type: identity_converter(this.login_info.identity_type),
       };
 
-      let data = new URLSearchParams();
-      for (let item in post_data) {
-        data.append(item, post_data[item]);
-      }
-
+      let data = data_to_urlsearchparams(post_data);
       post("/login-in", data).then((result) => {
-        this.isloading = false
+        this.isloading = false;
         let resultbody = result.data;
 
         if (!resultbody.success) {
@@ -85,12 +89,22 @@ export default {
         } else {
           this.$message({
             message: "登陆成功!",
-            type: "success"
+            type: "success",
           });
-          this.$store.commit('loginInStore/loginSuccess')
-          this.$router.push("/main")
+          this.$store.commit("loginInStore/loginSuccess");
+          this.$store.commit("loginInStore/setIdentityType", 1);
+          this.$router.push("/main");
         }
       });
+    },
+    prerogativeEntrance() {
+      this.$message({
+        message: "登陆成功!",
+        type: "success",
+      });
+      this.$store.commit("loginInStore/loginSuccess");
+      this.$store.commit("loginInStore/setIdentityType", 1);
+      this.$router.push("/main");
     },
   },
 };
