@@ -54,3 +54,11 @@
     background-color: white;
     padding: 1em;
 }
+
+#resource-manag-chemicals  .el-pagination{
+    margin: auto;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
