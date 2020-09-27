@@ -62,8 +62,15 @@
     flex: 1;
 }
 
-#common-user-manag .el-main .el-input{
+#common-user-manag .el-main .input_td>.el-input,#common-user-manag .el-main .for-index>.el-input{
     width:15%;
+}
+
+#common-user-manag .modify_dialog .el-input{
+    width: 80%;
+}
+#common-user-manag .modify_dialog .el-select{
+    width: 100%;
 }
 
 #common-user-manag .el-main .for-table{

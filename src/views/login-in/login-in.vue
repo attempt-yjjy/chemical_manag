@@ -104,7 +104,7 @@ export default {
         type: "success",
       });
       this.$store.commit("loginInStore/loginSuccess");
-      this.$store.commit("loginInStore/setIdentityType",1);
+      this.$store.commit("loginInStore/setIdentityType",0);
       this.$router.push("/main");
     },
   },
