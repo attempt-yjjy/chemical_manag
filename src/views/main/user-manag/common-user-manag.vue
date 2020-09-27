@@ -379,6 +379,7 @@ export default {
         (result) => {
           let data = result.data;
           this.tableData = this.resultTranslate(data);
+          this.current_page = 1
         }
       );
     },
