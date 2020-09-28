@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 import loginInStore from './login-in/login-in-store.js'
+import statusControl from './status-control/status-control.js'
 
 export default new Vuex.Store({
   state: {
@@ -15,7 +16,8 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    loginInStore
+    loginInStore,
+    statusControl
   }
 })
 

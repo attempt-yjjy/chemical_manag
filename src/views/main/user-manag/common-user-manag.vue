@@ -163,6 +163,7 @@ import get from "js/common/request/get/get_request.js";
 import post from "js/common/request/post/post_request.js";
 import identityCodeToName from "js/common/translate/identity_code_and_name.js";
 import dataToUrlsearchparams from "js/common/translate/data_to_urlsearchparams.js";
+import canOperateOrNot from 'js/exclusive/status-control/can-operate-or-not.js'
 
 export default {
   name: "",
@@ -203,32 +204,50 @@ export default {
     };
   },
   mounted() {
+    canOperateOrNot.intoModel()
     this.setPageCount();
     let path_get_page = "/" + this.current_type + "_get_onepage";
     get(path_get_page, { preNum: 0 }).then((result) => {
       let data = result.data;
       this.auto_completion(data);
       this.tableData = this.resultTranslate(data);
+      canOperateOrNot.successOutModel()
+    }).catch(()=>{
+      canOperateOrNot.errorOutModel(()=>{
+        this.$message.error("操纵失败!请检查网络设置!")
+      })
     });
   },
   methods: {
     setPageCount() {
+      canOperateOrNot.intoModel()
       if (this.current_type == "fuzzy") {
         get("/users_fuzzy_count", { pattern: this.search_input_flash }).then(
           (result) => {
             let data = result.data;
             this.data_total = data.reply;
+            canOperateOrNot.successOutModel()
           }
-        );
+        ).catch(()=>{
+          canOperateOrNot.errorOutModel(()=>{
+            this.$message.error("操纵失败!请检查网络设置!")
+          })
+        });
       } else {
         let path_count = "/" + this.current_type + "_get_count";
         get(path_count).then((result) => {
           let data = result.data;
           this.data_total = data.reply;
+          canOperateOrNot.successOutModel()
+        }).catch(()=>{
+          canOperateOrNot.errorOutModel(()=>{
+            this.$message.error("操纵失败!请检查网络设置!")
+          })
         });
       }
     },
     changePage(value) {
+      canOperateOrNot.intoModel()
       let path;
       let params;
       if (this.current_type == "fuzzy") {
@@ -245,6 +264,11 @@ export default {
         let data = result.data;
         this.auto_completion(data);
         this.tableData = this.resultTranslate(data);
+        canOperateOrNot.successOutModel()
+      }).catch(()=>{
+        canOperateOrNot.errorOutModel(()=>{
+          this.$message.error("操纵失败!请检查网络设置!")
+        })
       });
     },
     auto_completion(data) {

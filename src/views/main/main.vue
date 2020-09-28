@@ -13,6 +13,7 @@
         </el-main>
       </el-container>
     </el-container>
+    <div class="general-mask" v-show="$store.state.statusControl.modeling"></div>
   </div>
 </template>
 <script>
