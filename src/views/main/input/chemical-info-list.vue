@@ -29,7 +29,7 @@
               </el-form>
             </template>
           </el-table-column>
-          <el-table-column prop="input_time" label="入库时间"></el-table-column>
+          <el-table-column prop="input_time" label="入库时间" :formatter="time_convert"></el-table-column>
           <el-table-column prop="ch_name" label="药品名称"></el-table-column>
           <el-table-column prop="ch_type" label="药品类型"></el-table-column>
           <el-table-column prop="count" label="药品数量"></el-table-column>
@@ -74,6 +74,9 @@
 <script>
 import get from 'js/common/request/get/get_request.js'
 import BtnAndSearch from "components/common/btn-and-search.vue"
+import canOperateOrNot from 'js/exclusive/status-control/can-operate-or-not.js'
+import timeConverter from 'js/common/translate/time_converter.js'
+
 export default {
   name: "",
   props: {},
@@ -91,125 +94,115 @@ export default {
       },
       tableData: [
         {
-          input_time: "2020-09-10",
-          chemical_name: "阿莫西林",
-          chemical_type: "消炎药",
-          chemical_count: 20,
-          chemical_cabinet: 2,
-          who_input: "不知道",
-          who_check: "知不道",
-          expiration: "2020-09-11",
-          unit: "创模科技",
-          approver: "小红",
+          input_time: "",
+          ch_name: "",
+          ch_type: "",
+          count: "",
+          cabinet: "",
+          input_person: "",
+          useful_life: "",
+          unit: "",
+          approver: "",
         },
         {
-          input_time: "2020-09-10",
-          chemical_name: "阿莫西林",
-          chemical_type: "消炎药",
-          chemical_count: 20,
-          chemical_cabinet: 2,
-          who_input: "不知道",
-          who_check: "知不道",
-          expiration: "2020-09-11",
-          unit: "创模科技",
-          approver: "小红",
+          input_time: "",
+          ch_name: "",
+          ch_type: "",
+          count: "",
+          cabinet: "",
+          input_person: "",
+          useful_life: "",
+          unit: "",
+          approver: "",
         },
         {
-          input_time: "2020-09-10",
-          chemical_name: "阿莫西林",
-          chemical_type: "消炎药",
-          chemical_count: 20,
-          chemical_cabinet: 2,
-          who_input: "不知道",
-          who_check: "知不道",
-          expiration: "2020-09-11",
-          unit: "创模科技",
-          approver: "小红",
+          input_time: "",
+          ch_name: "",
+          ch_type: "",
+          count: "",
+          cabinet: "",
+          input_person: "",
+          useful_life: "",
+          unit: "",
+          approver: "",
         },
         {
-          input_time: "2020-09-10",
-          chemical_name: "阿莫西林",
-          chemical_type: "消炎药",
-          chemical_count: 20,
-          chemical_cabinet: 2,
-          who_input: "不知道",
-          who_check: "知不道",
-          expiration: "2020-09-11",
-          unit: "创模科技",
-          approver: "小红",
+          input_time: "",
+          ch_name: "",
+          ch_type: "",
+          count: "",
+          cabinet: "",
+          input_person: "",
+          useful_life: "",
+          unit: "",
+          approver: "",
         },
         {
-          input_time: "2020-09-10",
-          chemical_name: "阿莫西林",
-          chemical_type: "消炎药",
-          chemical_count: 20,
-          chemical_cabinet: 2,
-          who_input: "不知道",
-          who_check: "知不道",
-          expiration: "2020-09-11",
-          unit: "创模科技",
-          approver: "小红",
+          input_time: "",
+          ch_name: "",
+          ch_type: "",
+          count: "",
+          cabinet: "",
+          input_person: "",
+          useful_life: "",
+          unit: "",
+          approver: "",
         },
         {
-          input_time: "2020-09-10",
-          chemical_name: "阿莫西林",
-          chemical_type: "消炎药",
-          chemical_count: 20,
-          chemical_cabinet: 2,
-          who_input: "不知道",
-          who_check: "知不道",
-          expiration: "2020-09-11",
-          unit: "创模科技",
-          approver: "小红",
+          input_time: "",
+          ch_name: "",
+          ch_type: "",
+          count: "",
+          cabinet: "",
+          input_person: "",
+          useful_life: "",
+          unit: "",
+          approver: "",
         },
         {
-          input_time: "2020-09-10",
-          chemical_name: "阿莫西林",
-          chemical_type: "消炎药",
-          chemical_count: 20,
-          chemical_cabinet: 2,
-          who_input: "不知道",
-          who_check: "知不道",
-          expiration: "2020-09-11",
-          unit: "创模科技",
-          approver: "小红",
+          input_time: "",
+          ch_name: "",
+          ch_type: "",
+          count: "",
+          cabinet: "",
+          input_person: "",
+          useful_life: "",
+          unit: "",
+          approver: "",
         },
         {
-          input_time: "2020-09-10",
-          chemical_name: "阿莫西林",
-          chemical_type: "消炎药",
-          chemical_count: 20,
-          chemical_cabinet: 2,
-          who_input: "不知道",
-          who_check: "知不道",
-          expiration: "2020-09-11",
-          unit: "创模科技",
-          approver: "小红",
+          input_time: "",
+          ch_name: "",
+          ch_type: "",
+          count: "",
+          cabinet: "",
+          input_person: "",
+          useful_life: "",
+          unit: "",
+          approver: "",
         },
         {
-          input_time: "2020-09-10",
-          chemical_name: "阿莫西林",
-          chemical_type: "消炎药",
-          chemical_count: 20,
-          chemical_cabinet: 2,
-          who_input: "不知道",
-          who_check: "知不道",
-          expiration: "2020-09-11",
-          unit: "创模科技",
-          approver: "小红",
+          input_time: "",
+          ch_name: "",
+          ch_type: "",
+          count: "",
+          cabinet: "",
+          input_person: "",
+          useful_life: "",
+          unit: "",
+          approver: "",
         },
         {
-          input_time: "2020-09-10",
-          chemical_name: "阿莫西林",
-          chemical_type: "消炎药",
-          chemical_count: 20,
-          chemical_cabinet: 2,
-          who_input: "不知道",
-          who_check: "知不道",
-          expiration: "2020-09-11",
-          unit: "创模科技",
-          approver: "小红",
-        },
+          input_time: "",
+          ch_name: "",
+          ch_type: "",
+          count: "",
+          cabinet: "",
+          input_person: "",
+          useful_life: "",
+          unit: "",
+          approver: "",
+        }
       ],
       data_total:0,
       current_model:'all',
@@ -226,24 +219,31 @@ export default {
     this.pageChange(1)
   },
   methods: {
-    handleClose(done) {
-      this.drawer_show = false;
-      done();
-    },
     tableClick(row, column, cell, event) {
       console.log(row, column);
     },
     pageChange(pageIndex) {
+      canOperateOrNot.intoModel()
       if(this.current_model == 'all'){
         get('/chemical_input_record_one_page',{preNum:(pageIndex-1)*10}).then(result=>{
           let result_data = result.data
           this.tableData = this.fillToTen(result_data.reply)
+          canOperateOrNot.successOutModel()
+        }).catch(()=>{
+          canOperateOrNot.errorOtModel(()=>{
+            this.$message.error("操作失败!请检查网络设置!")
+          })
         })
       }
       else{
         get('/chemical_input_record_fuzzy_one_page',{preNum:(pageIndex-1)*10,pattern:this.search_input_flash}).then(result=>{
           let result_data = result.data
           this.tableData = this.fillToTen(result_data.reply)
+          canOperateOrNot.successOutModel()
+        }).catch(()=>{
+          canOperateOrNot.errorOtModel(()=>{
+            this.$message.error("操作失败!请检查网络设置!")
+          })
         })
       }
     },
@@ -256,16 +256,27 @@ export default {
         })
     },
     setPageCount(){
+      canOperateOrNot.intoModel()
       if(this.current_model == 'all'){
         get("/chemical_input_record__all_count").then(result=>{
           let result_data = result.data
           this.data_total = result_data.reply
+          canOperateOrNot.successOutModel()
+        }).catch(()=>{
+          canOperateOrNot.errorOtModel(()=>{
+            this.$message.error("操作失败!请检查网络设置!")
+          })
         })
       }
       else{
         get("/chemical_input_record_fuzzy_count",{pattern:this.search_input_flash}).then(result=>{
           let result_data = result.data
           this.data_total = result_data.reply
+          canOperateOrNot.successOutModel()
+        }).catch(()=>{
+          canOperateOrNot.errorOtModel(()=>{
+            this.$message.error("操作失败!请检查网络设置!")
+          })
         })
       }
     },
@@ -295,6 +306,9 @@ export default {
         this.pageChange(1)
         this.currentPage = 1
       }
+    },
+    time_convert(row){
+      return timeConverter.millsToDate(row.input_time)
     }
   }
 };

@@ -1,14 +1,21 @@
 export default {
     namespaced:true,
     state: {
-        modeling:false
+        modeling:0
+    },
+    getters:{
+        shouldModel(state){
+            return state.modeling == 0
+        }
     },
     mutations: {
         intoModel(state){
-            state.modeling = true
+            state.modeling+=1
+            console.log("+1")
         },
         exitModel(state){
-            state.modeling = false
+            state.modeling-=1
+            console.log("-1")
         }
     },
     actions: {

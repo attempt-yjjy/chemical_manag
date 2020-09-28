@@ -66,7 +66,7 @@
                 保 质 期:
               </td>
               <td v-if="currentOperate=='chemical'">
-                <el-date-picker v-model="currentInfo.expiration"></el-date-picker>
+                <el-input type="number" v-model="currentInfo.useful_life"></el-input>
               </td>
               <td class="space-td" v-if="currentOperate=='chemical'"></td>
               <td>
@@ -79,7 +79,7 @@
               
           </table>
           <div class="confirm-btn">
-            <el-button type="primary">提交</el-button>
+            <el-button type="primary" @click="submit">提交</el-button>
             <el-button type="primary" plain>清空</el-button>
           </div>
       </el-main>
@@ -87,6 +87,10 @@
   </div>
 </template>
 <script>
+import post from 'js/common/request/post/post_request.js'
+import canOperateOrNot from 'js/exclusive/status-control/can-operate-or-not.js'
+import dataToUrlsearchparams from "js/common/translate/data_to_urlsearchparams.js"
+
 export default {
   name: "",
   props: {},
@@ -100,7 +104,7 @@ export default {
               count:0,
               who_input:"",
               cabinet:0,
-              expiration:new Date(),
+              useful_life:"",
               unit:""
           }
       }
@@ -120,7 +124,54 @@ export default {
           }
           console.log(result)
           return result;
+      },
+      post_data(){
+        if(this.currentOperate == 'chemical'){
+          return {
+            input_time:this.currentInfo.input_time,
+            ch_name:this.currentInfo.name,
+            ch_type:this.currentInfo.type,
+            count:this.currentInfo.count,
+            input_person:this.currentInfo.who_input,
+            cabinet:this.currentInfo.cabinet,
+            useful_life:this.currentInfo.useful_life,
+            unit:this.currentInfo.unit
+          }
+        }else{
+          return {
+            input_time:this.currentInfo.input_time,
+            de_name:this.currentInfo.name,
+            de_type:this.currentInfo.type,
+            count:this.currentInfo.count,
+            input_person:this.currentInfo.who_input,
+            cabinet:this.currentInfo.cabinet,
+            unit:this.currentInfo.unit
+          }
+        }
+        
       }
+  },
+  methods:{
+    submit(){
+      canOperateOrNot.intoModel()
+      let path = "/" + this.currentOperate + "_input_record_insert"
+      post(path,dataToUrlsearchparams(this.post_data)).then(result=>{
+        let result_data = result.data
+        if(result_data.success){
+          this.$message({
+            message:"添加成功!",
+            type:"success"
+          })
+        }else{
+          this.$message.error("添加失败!")
+        }
+        canOperateOrNot.successOutModel()
+      }).catch(()=>{
+        canOperateOrNot.errorOutModel(()=>{
+          this.$message.error("操作失败!请检查网络!")
+        })
+      })
+    }
   }
 };
 </script>

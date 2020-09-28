@@ -148,7 +148,7 @@
         <div class="for-pagination">
           <el-pagination
             background
-            layout="prev, pager, next"
+            layout="prev, pager, next, jumper"
             :total="data_total"
             @current-change="changePage"
             :current-page.sync="current_page"

@@ -13,7 +13,7 @@
         </el-main>
       </el-container>
     </el-container>
-    <div class="general-mask" v-show="$store.state.statusControl.modeling"></div>
+    <div class="general-mask" v-show="shouldModel"></div>
   </div>
 </template>
 <script>
@@ -27,6 +27,11 @@ export default {
     KinAside,
     KinMain,
     KinHeader
+  },
+  computed:{
+    shouldModel(){
+      return !this.$store.getters["statusControl/shouldModel"]
+    }
   }
 };
 </script>
