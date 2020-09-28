@@ -1,6 +1,14 @@
 <template>
   <div class='btn-and-search' :style="{'display':(OnlySearch?'block':'flex')}">
-      <el-button v-if="!OnlySearch" :icon="PreBtnIcon" type="primary" :style="{'width':buttonWidth(PreBtnText) + 'em'}">{{PreBtnText}}</el-button>
+      <el-button v-if="!OnlySearch" 
+        :icon="PreBtnIcon" 
+        type="primary" 
+        :style="{'width':buttonWidth(PreBtnText) + 'em'}"
+        @click="btnBeClicked"
+        >
+
+        {{PreBtnText}}
+      </el-button>
       <div v-if="!OnlySearch" class="split-div"></div>
       <el-input :suffix-icon="SufInputIcon"></el-input>
       <el-button type="primary" :style="{'width':buttonWidth(SufBtnText) + 'em'}">{{SufBtnText}}</el-button>
@@ -35,6 +43,9 @@
         buttonWidth(str){
             let len = str.length * 2
             return len<6?6:len
+        },
+        btnBeClicked(){
+          this.$emit("btn-click")
         }
     }
   }

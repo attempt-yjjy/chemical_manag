@@ -2,7 +2,7 @@
   <div id="input-chemical" class="input-main">
     <el-container>
       <el-main>
-        <btn-and-search pre-btn-text="入库新药品信息"></btn-and-search>
+        <btn-and-search pre-btn-text="入库新药品信息" @btn-click="goToAdd"></btn-and-search>
         <el-table 
           :data="tableData" 
           stripe 
@@ -205,6 +205,14 @@ export default {
     pageChange(pageIndex) {
       console.log(pageIndex);
     },
+    goToAdd(){
+      this.$router.push({
+          path:"/main/input-manag/entering-info",
+          query:{
+            whatToInput:'药品'
+          }
+        })
+    }
   },
 };
 </script>

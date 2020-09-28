@@ -105,6 +105,12 @@ export default {
           }
       }
   },
+  created(){
+     let whatToInput = this.$route.query.whatToInput
+     if(whatToInput){
+       this.radio = this.$route.query.whatToInput
+     }
+  },
   computed:{
       currentOperate(){
           let result;

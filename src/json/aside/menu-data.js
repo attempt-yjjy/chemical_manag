@@ -2,7 +2,7 @@ export default{
     style:{
         backgroundColor:"#343641",
         textColor:"#fff",
-        activeTextColor:"#ffd04b"
+        activeTextColor:"#fff"
     },
     menuData:[
         {
