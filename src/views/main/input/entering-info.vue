@@ -80,7 +80,7 @@
           </table>
           <div class="confirm-btn">
             <el-button type="primary" @click="submit">提交</el-button>
-            <el-button type="primary" plain>清空</el-button>
+            <el-button type="primary" plain @click="empty">清空</el-button>
           </div>
       </el-main>
     </el-container>
@@ -98,6 +98,16 @@ export default {
       return{
           radio:"药品",
           currentInfo:{
+              input_time:new Date(),
+              name:"",
+              type:"",
+              count:0,
+              who_input:"",
+              cabinet:0,
+              useful_life:"",
+              unit:""
+          },
+          emptyInfo:{
               input_time:new Date(),
               name:"",
               type:"",
@@ -171,6 +181,11 @@ export default {
           this.$message.error("操作失败!请检查网络!")
         })
       })
+    },
+    empty(){
+      for(let key in this.emptyInfo){
+        this.currentInfo[key] = this.emptyInfo[key]
+      }
     }
   }
 };

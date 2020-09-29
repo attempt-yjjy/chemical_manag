@@ -42,11 +42,14 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.5em;
   }
 
   #kin-header .header-operate .font{
-    font-size:medium;
+    font-size:1.1em;
+  }
+
+  #kin-header i{
+    font-size: x-large;
   }
 
   #kin-header .header-operate i{
