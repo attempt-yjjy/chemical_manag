@@ -215,7 +215,7 @@ export default {
       value3: "",
       value: "",
       input: "",
-      currentPage: 5,
+      currentPage: 1,
     };
   },
   methods: {
