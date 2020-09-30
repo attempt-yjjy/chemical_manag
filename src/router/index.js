@@ -81,6 +81,20 @@ const routes_main = [
         meta:{
           sub_name:"设备"
         }
+      },
+      {
+        path:'/main/output-manag/output-apply',
+        component:()=>import('views/main/output/output-apply.vue'),
+        meta:{
+          sub_name:"出库申请"
+        }
+      },
+      {
+        path:'/main/output-manag/outborrow-apply',
+        component:()=>import('views/main/output/outborrow-apply.vue'),
+        meta:{
+          sub_name:"外借申请"
+        }
       }
     ]
   },

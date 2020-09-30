@@ -217,7 +217,7 @@ export default {
           this.tableData = this.fillToTen(result_data.reply)
           canOperateOrNot.successOutModel()
         }).catch(()=>{
-          canOperateOrNot.errorOtModel(()=>{
+          canOperateOrNot.errorOutModel(()=>{
             this.$message.error("操作失败!请检查网络设置!")
           })
         })
@@ -228,7 +228,7 @@ export default {
           this.tableData = this.fillToTen(result_data.reply)
           canOperateOrNot.successOutModel()
         }).catch(()=>{
-          canOperateOrNot.errorOtModel(()=>{
+          canOperateOrNot.errorOutModel(()=>{
             this.$message.error("操作失败!请检查网络设置!")
           })
         })
@@ -250,7 +250,7 @@ export default {
           this.data_total = result_data.reply
           canOperateOrNot.successOutModel()
         }).catch(()=>{
-          canOperateOrNot.errorOtModel(()=>{
+          canOperateOrNot.errorOutModel(()=>{
             this.$message.error("操作失败!请检查网络设置!")
           })
         })
@@ -261,7 +261,7 @@ export default {
           this.data_total = result_data.reply
           canOperateOrNot.successOutModel()
         }).catch(()=>{
-          canOperateOrNot.errorOtModel(()=>{
+          canOperateOrNot.errorOutModel(()=>{
             this.$message.error("操作失败!请检查网络设置!")
           })
         })

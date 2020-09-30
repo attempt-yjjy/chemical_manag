@@ -76,11 +76,11 @@ export default{
                 },
                 {
                     "menu-item-name":"出库申请",
-                    "path":"/output-application"
+                    "path":"/output-apply"
                 },
                 {
                     "menu-item-name":"外借申请",
-                    "path":"/outborrow-application"
+                    "path":"/outborrow-apply"
                 }
             ],
             "icon":"el-icon-s-unfold"
