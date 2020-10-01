@@ -1,0 +1,34 @@
+.upload-block{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid RGBA(32, 160, 255, 1);
+    border-radius: 5px;
+    background-color: RGBA(247, 249, 252, 1);
+}
+
+.upload-block input{
+    display: none;
+}
+
+.upload-block img{
+    width:23%;
+    display: block;
+    margin-bottom: 1.5em;
+}
+.upload-block span{
+    font-weight:600;
+    color: RGBA(153, 153, 153, 1);
+}
+
+.upload-block span .upload-link{
+    color: RGBA(32, 160, 255, 1);
+    cursor: pointer;
+}
+
+.upload-block span .upload-link:hover{
+    text-decoration: underline;
+}
