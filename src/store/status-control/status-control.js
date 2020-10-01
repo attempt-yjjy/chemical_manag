@@ -11,11 +11,9 @@ export default {
     mutations: {
         intoModel(state){
             state.modeling+=1
-            console.log("+1")
         },
         exitModel(state){
             state.modeling-=1
-            console.log("-1")
         }
     },
     actions: {

@@ -45,18 +45,37 @@
           label="出库人"
         ></el-table-column>
       </el-table>
+      <div class="finish-check">
+          <el-button @click="submit_confirm" type="primary" :disabled="btn_lock">提交</el-button>
+          <el-button @click="submit_cancel" type="primary" plain :disabled="btn_lock">取消</el-button>
+      </div>
     </el-dialog>
-    <input type="file" :name="FileName" id="input-up" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" @change="chooseFile"/>
+    <div id="file-container">
+        <input type="file" :name="FileName" id="input-up" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" @change="chooseFile"/>
+    </div>
     <img src="~assets/images/xls.png" />
-    <span
-      >将文件拖拽至此，或<span class="upload-link" @click="click_open"
-        >点击上传</span
-      ></span
-    >
+    <span class="span" v-if="!alreadyHasFile">
+        将文件拖拽至此，或
+        <span class="upload-link" @click="click_open">
+          点击上传
+        </span>
+    </span>
+    <span class="span" v-else>
+        {{currentFileName}}
+        <span class="upload-link" @click="dialogTableVisible = true">
+          查看
+        </span>
+        |
+        <span class="upload-link" @click="click_open">重新上传</span>
+    </span>
+
   </div>
 </template>
 <script>
 import * as XLSX from "xlsx";
+import timeConverter from 'js/common/translate/time_converter.js'
+import post from 'js/common/request/post/post_list.js'
+import modelControl from 'js/exclusive/status-control/can-operate-or-not.js'
 
 export default {
   name: "UploadBlock",
@@ -65,7 +84,10 @@ export default {
       reader: null,
       dialogTableVisible:false,
       gridData:[],
-      currentType:"chemical"
+      currentType:"chemical",
+      alreadyHasFile:false,
+      currentFileName:"",
+      btn_lock:false
     };
   },
   props: {
@@ -115,13 +137,12 @@ export default {
         }
         this.gridData = data
         this.dialogTableVisible = true
-        console.log(data)
       } catch (e) {
+        this.alreadyHasFile = false
         this.$message.error("请操作正确格式的文件")
         return
       }
     };
-    // 以二进制方式打开文件
   },
   methods: {
     click_open() {
@@ -141,12 +162,61 @@ export default {
       let dataTransfer = e.dataTransfer;
       let file = dataTransfer.files[0];
       // 通过FileReader对象读取文件
-
+      this.alreadyHasFile = true
+      this.currentFileName = file.name
       this.reader.readAsBinaryString(file);
     },
     chooseFile(e){
+        this.alreadyHasFile = true
         let file = e.target.files[0]
+        this.currentFileName = file.name
         this.reader.readAsBinaryString(file)
+    },
+    submit_confirm(){
+        modelControl.intoModel()
+        this.btn_lock = true
+        let post_data = []
+        
+        for(let element of this.gridData){
+            let obj = {}
+            for(let item in element){
+                if(item == 'output_time'){
+                    obj[item] = timeConverter.stringToDate(element[item])
+                }
+                obj[item] = element[item]
+            }
+            obj["pro_id"] = this.$store.state.loginInStore.user_id
+            post_data.push(obj)
+        }
+        console.log(post_data)
+        let path = "/" + this.currentType + "_apply/submit_apply"
+        post(path,post_data).then(result=>{
+            let result_data = result.data
+            if(result_data.success){
+                modelControl.successOutModel()
+                this.$message({
+                    type:"success",
+                    message:"添加成功!"
+                })
+                this.dialogTableVisible = false
+                this.btn_lock = false
+            }
+            else{
+                modelControl.errorOutModel(()=>{
+                    this.$message.error("操作失败!请稍后再试!")
+                    this.btn_lock = false
+                })
+            }
+        }).catch(()=>{
+            modelControl.errorOutModel(()=>{
+                this.$message.error("操作失败!请稍后再试!")
+                this.btn_lock = false
+            })
+        })
+        
+    },
+    submit_cancel(){
+        this.dialogTableVisible = false
     }
   },
 };

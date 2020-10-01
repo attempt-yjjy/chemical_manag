@@ -3,7 +3,8 @@ export default {
     state: {
         isLogined: false,
         identity_type:-1,
-        name:""
+        name:"",
+        user_id:-1
     },
     mutations: {
         loginSuccess(state) {
@@ -14,6 +15,9 @@ export default {
         },
         setName(state,value){
             state.name = value
+        },
+        setId(state,value){
+            state.user_id = value
         }
     },
     actions: {

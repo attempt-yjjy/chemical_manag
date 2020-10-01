@@ -4,7 +4,7 @@
       <span class="title">化学药品管理系统</span>
     </div>
     <div class="header-operate">
-      <span class="font">欢迎登录 , <span>{{name}}</span></span>
+      <span class="font">欢迎登录 , {{name}}</span>
       <div><el-badge is-dot><i class="el-icon-bell"></i></el-badge></div>
       <div><i class="el-icon-s-management"></i></div>
     </div>

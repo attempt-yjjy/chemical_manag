@@ -19,7 +19,7 @@
     display: block;
     margin-bottom: 1.5em;
 }
-.upload-block span{
+.upload-block .span{
     font-weight:600;
     color: RGBA(153, 153, 153, 1);
 }
@@ -31,4 +31,12 @@
 
 .upload-block span .upload-link:hover{
     text-decoration: underline;
+}
+
+.upload-block .finish-check{
+    padding: 2em 0 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

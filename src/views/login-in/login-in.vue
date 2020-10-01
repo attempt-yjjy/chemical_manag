@@ -94,6 +94,7 @@ export default {
           this.$store.commit("loginInStore/loginSuccess");
           this.$store.commit("loginInStore/setIdentityType", post_data.identity_type);
           this.$store.commit("loginInStore/setName", resultbody.reply.name);
+          this.$store.commit("loginInStore/setId", resultbody.reply.id);
           this.$router.push("/main");
         }
       });
