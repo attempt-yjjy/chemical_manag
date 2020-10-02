@@ -31,6 +31,10 @@
     text-align-last: justify;
 }
 
+#entering-info .input-info-table td>div{
+    width:100%;
+}
+
 #entering-info .input-info-table .space-td{
     width:20%;
 }

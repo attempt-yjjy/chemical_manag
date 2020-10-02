@@ -67,11 +67,11 @@ export default{
             "path":"/output-manag",
             "sub_menu":[
                 {
-                    "menu-item-name":"化学药品",
+                    "menu-item-name":"药品出库记录",
                     "path":"/chemical-info-list"
                 },
                 {
-                    "menu-item-name":"设备",
+                    "menu-item-name":"设备出库记录",
                     "path":"/device-info-list"
                 },
                 {
@@ -81,6 +81,14 @@ export default{
                 {
                     "menu-item-name":"外借申请",
                     "path":"/outborrow-apply"
+                },
+                {
+                    "menu-item-name":"药品出库申请管理",
+                    "path":"/chemical-output-apply-manag"
+                },
+                {
+                    "menu-item-name":"设备出库申请管理",
+                    "path":"/device-output-apply-manag"
                 }
             ],
             "icon":"el-icon-s-unfold"

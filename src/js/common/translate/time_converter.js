@@ -9,5 +9,13 @@ export default {
     stringToDate(str){
         let date = new Date(str)
         return date
+    },
+    dateToString(date){
+        if(date == null || date == undefined){
+            date = new Date()
+        }
+        let result
+        result = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        return result
     }
 }

@@ -72,28 +72,42 @@ const routes_main = [
         path:'/main/output-manag/chemical-info-list',
         component:()=>import('views/main/output/chemical-info-list.vue'),
         meta:{
-          sub_name:"化学药品"
+          sub_name:"药品出库记录"
         }
       },
       {
         path:'/main/output-manag/device-info-list',
         component:()=>import('views/main/output/device-info-list.vue'),
         meta:{
-          sub_name:"设备"
+          sub_name:"设备出库记录"
         }
       },
       {
         path:'/main/output-manag/output-apply',
         component:()=>import('views/main/output/output-apply.vue'),
         meta:{
-          sub_name:"出库申请"
+          sub_name:"申请出库"
         }
       },
       {
         path:'/main/output-manag/outborrow-apply',
         component:()=>import('views/main/output/outborrow-apply.vue'),
         meta:{
-          sub_name:"外借申请"
+          sub_name:"申请外借"
+        }
+      },
+      {
+        path:'/main/output-manag/chemical-output-apply-manag',
+        component:()=>import("views/main/output/chemical-output-apply-manag.vue"),
+        meta:{
+          sub_name:"药品出库申请管理"
+        }
+      },
+      {
+        path:"/main/output-manag/device-output-apply-manag",
+        component:()=>import("views/main/output/device-output-apply-manag"),
+        meta:{
+          sub_name:"设备出库申请管理"
         }
       }
     ]

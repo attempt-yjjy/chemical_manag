@@ -6,8 +6,38 @@
     height:90% !important;
 }
 
+.output-main .dispatcherBody{
+    height: 100vh;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+.output-main .dispatcherBody .demand-show{
+    height:6vh;
+}
+
+.output-main .dispatcherBody .selected-show{
+    height:6vh;
+}
+
+.output-main .dispatcherBody .operate-body{
+    height:80vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.output-main .dispatcherBody .operate-body .content-show{
+    width:80%;
+}
+
+.output-main .dispatcherBody .operate-body .cabinet-list-container{
+    width:20%;
+}
+
 .output-main>.el-container>.el-main{
     margin:1em;
     padding: 1em !important;
     background-color: #fff;
 }
+

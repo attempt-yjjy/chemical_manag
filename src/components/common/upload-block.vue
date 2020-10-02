@@ -186,6 +186,7 @@ export default {
                 obj[item] = element[item]
             }
             obj["pro_id"] = this.$store.state.loginInStore.user_id
+            obj["state"] = 1
             post_data.push(obj)
         }
         console.log(post_data)

@@ -96,8 +96,8 @@
             </el-form-item>
           </el-form>
           <div slot="footer" class="dialog-footer">
-            <el-button @click="modifyDialogFormVisible = false">取 消</el-button>
-            <el-button type="primary" @click="modify_dialog_submit">确 定</el-button>
+            <el-button @click="modify_dialog_cancel" :disabled="modifySubmitUnlock">取 消</el-button>
+            <el-button type="primary" @click="modify_dialog_submit" :disabled="modifySubmitUnlock">确 定</el-button>
           </div>
         </el-dialog>
         <div class="for-table">
@@ -200,7 +200,8 @@ export default {
         formLabelWidth:'20%',
         modifyDialogWidth:"30%",
         modifyDialogTop:"20vh"
-      }
+      },
+      modifySubmitUnlock:false
     };
   },
   mounted() {
@@ -356,9 +357,12 @@ export default {
         type: "warning",
       })
         .then(() => {
+          canOperateOrNot.intoModel()
           get("/user_delete", { username })
             .then((result) => {
+
               let result_data = result.data;
+              canOperateOrNot.successOutModel()
               if (result_data.success) {
                 this.$message({
                   message: "删除成功!",
@@ -376,6 +380,9 @@ export default {
               }
             })
             .catch(() => {
+              canOperateOrNot.errorOutModel(()=>{
+                this.$message.error("操作失败!")
+              })
               this.$message.error("删除失败!");
             });
         })
@@ -419,6 +426,7 @@ export default {
       if(!this.verify_not_empyt(this.modify_form)){
         return
       }
+      this.modifySubmitUnlock = true
       let post_data = {
         name: this.modify_form.name,
         username: this.modify_form.username,
@@ -427,6 +435,7 @@ export default {
       };
       post_data = dataToUrlsearchparams(post_data);
       post('/users_update',post_data).then(result=>{
+        this.modifySubmitUnlock = false
         console.log(result)
         let result_data = result.data
         if(result_data.success){
@@ -441,9 +450,13 @@ export default {
           this.$message.error("1修改失败!")
         }
       }).catch((error)=>{
+        this.modifySubmitUnlock = false
         console.log(error)
       })
 
+    },
+    modify_dialog_cancel(){
+       this.modifyDialogFormVisible = false
     }
   }
 };
