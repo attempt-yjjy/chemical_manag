@@ -1,24 +1,36 @@
 <template>
   <div id="chemical-output-apply-manag" class="output-main">
     <el-drawer
-      title="我嵌套了表格!"
       :visible.sync="dispatcherDrawerVisible"
       direction="rtl"
-      size="60%"
+      size="70%"
       :withHeader="false"
     >
       <div class="dispatcherBody">
-        <div class="demand-show"></div>
+        <div class="demand-show">
+          <table>
+            <tr>
+              <td>当前需求：</td>
+              <td v-for="item in dispatcher_dialog.current_demand" :key="item">{{item}}</td>
+            </tr>
+          </table>
+          
+        </div>
         <div class="selected-show"></div>
         <div class="operate-body">
           <div class="content-show">
-            <el-table :data="source_list" border style="width: 100%">
+            <el-table :data="dispatcher_dialog.source_list" 
+                      border 
+                      style="width: 100%" 
+                      :header-cell-style="{'text-align':'center','background-color':'#342D41','color':'#ffffff'}"
+                      >
+              <el-table-column prop="id" label="资源ID"> </el-table-column>
               <el-table-column prop="ch_name" label="药品名称">
               </el-table-column>
               <el-table-column prop="ch_type" label="药品类型">
               </el-table-column>
               <el-table-column prop="count" label="剩余数量"> </el-table-column>
-              <el-table-column prop="id" label="资源ID"> </el-table-column>
+              
               <el-table-column prop="input_time" label="入库日期">
               </el-table-column>
               <el-table-column prop="useful_life" label="保质期">
@@ -33,9 +45,13 @@
             </el-table>
           </div>
           <div class="cabinet-list-container">
-            <el-menu class="el-menu-demo" mode="vertical">
+            <el-menu class="el-menu-demo" 
+                     mode="vertical"
+                     background-color="#342D41"
+                     text-color="#ffffff"
+                     >
               <el-menu-item
-                v-for="(item, index) in cabinet_list"
+                v-for="(item, index) in dispatcher_dialog.cabinet_list"
                 :key="item['no']"
                 @click="select_cabinet(item, index)"
               >
@@ -183,7 +199,10 @@ export default {
           pro_id: 2,
         },
       ],
-      cabinet_list: [
+      data_total: 100,
+      dispatcherDrawerVisible: false,
+      dispatcher_dialog:{
+        cabinet_list: [
         {
           no: 1,
         },
@@ -197,8 +216,10 @@ export default {
           no: 4,
         },
       ],
-      data_total: 100,
-      dispatcherDrawerVisible: false,
+        source_list:[],
+        current_demand:{},
+        current_select_list:[]
+      }
     };
   },
   methods: {
@@ -227,6 +248,7 @@ export default {
     },
     allocateChemical(apply) {
       this.dispatcherDrawerVisible = true;
+      this.dispatcher_dialog.current_demand = apply
       console.log(apply);
     },
     select_cabinet(item, index) {
